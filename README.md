@@ -13,8 +13,8 @@ Mais tarde, a área `app/` vai receber o **Precifica Rô Web** (só para a Rô, 
 
 | Rota | Tela | Situação |
 |---|---|---|
-| `#/inicio` | Início | Estrutura pronta; capa e destaques na etapa 1B |
-| `#/cardapio` | Cardápio | Estrutura pronta; conteúdo na etapa 1B |
+| `#/inicio` | Início | Capa com fotos reais, destaques, prévia do cardápio (1B); arte de capa pendente |
+| `#/cardapio` | Cardápio | 6 categorias, cartões com foto real ou `[PENDENTE]`; atalhos `#/cardapio/<categoria>` (1B) |
 | `#/encomendas` | Encomendas | Estrutura pronta; conteúdo na etapa 1C |
 | `#/datas-especiais` | Datas especiais | Estrutura pronta; conteúdo na etapa 1C |
 | `#/sobre` | Sobre a Rô | Estrutura pronta; conteúdo na etapa 1C |
@@ -32,6 +32,9 @@ html/               uma view por tela
 css/                variaveis → base → layout → componentes → utilitarios
 js/main.js          ponto de entrada
 js/dados/site.js    contato comercial (WhatsApp, Instagram, horário)
+js/dados/cardapio.js categorias e itens do cardápio (sem preços enquanto a Rô não decidir)
+js/telas/           inicio.js e cardapio.js (montam as telas a partir dos dados)
+imagens/produtos/   fotos reais em 4:5 (WebP 480/800 + JPG)
 js/modules/         roteador, menu, templates (escapar), whatsapp
 imagens/logo/       logo original em WebP + PNG e ícones
 ferramentas/        contraste.mjs (mede o contraste das cores)
