@@ -28,3 +28,9 @@ Onde o `CLAUDE.md` disser "Claude Code", leia "o agente que estiver trabalhando"
 - Abrir PR com o que foi feito, como testar e o que falta. O outro agente revisa antes do merge.
 - Dúvida de decisão: anotar em "Dúvidas para o Franklin" na passagem e seguir com o que não depende dela.
 - Nunca `push --force`, `reset --hard`, apagar branch, tag ou arquivo sem o Franklin pedir.
+
+## Imagens
+
+- O agente de código **não gera imagem**. Usa só fotos reais (`imagens/produtos/`), o logo original (`imagens/logo/`) e os arquivos já aprovados da mascote e dos ícones (a partir da etapa 1D).
+- Faltou imagem: anotar em "Dúvidas para o Franklin" na passagem. O Claude escreve o pedido e o **ChatGPT** gera, seguindo o "Protocolo de imagens – Claude + ChatGPT" (Drive: `Claude/Design/00 - Pedidos de imagem (ChatGPT)`).
+- Produto é sempre foto real; logo nunca é recriado; personagem licenciado nunca é desenhado.
