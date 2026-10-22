@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delícias da Rô | Design system</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagens/logo/logo-r-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Dancing+Script:wght@700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/variaveis.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/utilitarios.css">
+  <style>
+    .ds-amostras { display: flex; flex-wrap: wrap; gap: var(--espaco-3); list-style: none; padding: 0; }
+    .ds-amostra { width: 150px; border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); overflow: hidden; background: var(--cor-branco); font-size: var(--texto-pequeno); }
+    .ds-amostra__cor { height: 64px; }
+    .ds-amostra p { margin: var(--espaco-2); }
+    .ds-fonte { padding: var(--espaco-4); border: 1px solid var(--cor-borda); border-radius: var(--raio); background: var(--cor-branco); }
+    .ds-fonte--b { --fonte-titulo: 'Cormorant Garamond', Georgia, serif; }
+  </style>
+</head>
+<body>
+  <main class="container" id="app">
+    <h1>Design system</h1>
+    <p>Página de apoio (não aparece no menu). Mostra as cores, as fontes e os componentes do site.</p>
+
+    <section class="secao">
+      <h2>Escolha da fonte dos títulos</h2>
+      <p>As duas opções lado a lado. Dá também para ver o site inteiro com a opção B abrindo <a href="index.html?fonte=cormorant#/inicio">index.html?fonte=cormorant</a>.</p>
+      <div class="grid">
+        <div class="col-md-6 ds-fonte">
+          <p class="pendente">Opção A · Fraunces (padrão)</p>
+          <h2>Bolos que viram lembrança</h2>
+          <h3>Bentô Cake e bolos decorados</h3>
+          <p>Texto corrido em Nunito. Encomendas com antecedência, retirada no ateliê.</p>
+        </div>
+        <div class="col-md-6 ds-fonte ds-fonte--b">
+          <p class="pendente">Opção B · Cormorant Garamond</p>
+          <h2>Bolos que viram lembrança</h2>
+          <h3>Bentô Cake e bolos decorados</h3>
+          <p>Texto corrido em Nunito. Encomendas com antecedência, retirada no ateliê.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao">
+      <h2>Cores</h2>
+      <ul class="ds-amostras">
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-fundo)"></div><p>Fundo Nuvem<br>#FFF7F5</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-fundo-2)"></div><p>Blush<br>#FBE3E1</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-creme)"></div><p>Creme Chantilly<br>#EEE4D1</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-borda)"></div><p>Borda Pétala<br>#F6CBCD</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-texto)"></div><p>Chocolate (texto)<br>#4A2329</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-texto-2)"></div><p>Cacau (títulos)<br>#6E2A33</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-rosa)"></div><p>Rosa Rô (detalhe)<br>#E99892</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-caramelo)"></div><p>Caramelo (fios)<br>#C58B4B</p></li>
+        <li class="ds-amostra"><div class="ds-amostra__cor" style="background:var(--cor-acao)"></div><p>Vermelho Morango<br>#CC2D1F</p></li>
+      </ul>
+    </section>
+
+    <section class="secao">
+      <h2>Componentes</h2>
+      <p class="abertura__acoes" style="justify-content:flex-start">
+        <a class="botao botao--principal" href="#">Faça sua encomenda</a>
+        <a class="botao botao--contorno" href="#">Ver o cardápio</a>
+      </p>
+      <p><span class="pendente">[PENDENTE: exemplo de marcador de conteúdo que falta]</span></p>
+      <p class="abertura__frase">Sabores que encantam</p>
+    </section>
+  </main>
+</body>
+</html>
