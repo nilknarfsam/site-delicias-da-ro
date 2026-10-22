@@ -4,13 +4,24 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- Fase/etapa: **1C – Encomendas, Datas especiais, Sobre a Rô, Contato** (a fazer, pelo **Codex**). 1A e 1B publicadas no `main` (PRs #1 e #2).
-- Branch ativa: `feat/1c-paginas-de-informacao` (já criada pelo Claude, com este pedido)
-- PR aberto: nenhum ainda
-- Situação: pedido escrito e aprovado pelo Franklin. Primeira etapa feita pelo Codex: o Claude revisa o PR depois.
-- GitHub Pages: o Franklin ainda precisa ligar (Settings → Pages → Deploy from a branch → `main` / root).
+- Fase/etapa: **1C implementada, testada e em revisão no PR #3**. 1A e 1B já estão no `main` (PRs #1 e #2).
+- Branch ativa: `feat/1c-paginas-de-informacao`.
+- Commit de implementação no GitHub: `0404d4f460e4204fa20af2b0db5bd60bd024234b`.
+- Commit de capturas no GitHub: `a31fee544345eca9f31a47351d60ff3b092f702a`.
+- PR aberto para `main`: **[#3 – feat(site): páginas de informação da etapa 1C](https://github.com/nilknarfsam/site-delicias-da-ro/pull/3)**.
+- Envio: concluído pela integração GitHub após o Franklin instalá-la. Os commits remotos têm as mesmas árvores/arquivos testados localmente; capturas conferidas por hash. A tentativa inicial pelo terminal não tinha credencial; o bloqueio foi resolvido pela integração.
+- Situação: escritor e revisor utilizados conforme `AGENTS.md`; parecer interno sem bloqueios. Aguardando revisão do Claude no PR e aprovação do Franklin antes de qualquer merge/publicação.
+- GitHub Pages: habilitação pelo Franklin ainda pendente conforme a sessão anterior; não alterada nesta etapa.
 
-## Próxima tarefa (exata) – Etapa 1C, para o Codex
+## Próxima tarefa (exata) – Revisar o PR #3 da 1C
+
+1. Ler `AGENTS.md`, `CLAUDE.md` e esta passagem. Conferir o PR [#3](https://github.com/nilknarfsam/site-delicias-da-ro/pull/3), branch `feat/1c-paginas-de-informacao`, e sincronizar um checkout limpo.
+2. **Claude:** revisar o diff da 1C contra a especificação preservada abaixo, incluindo as capturas em `docs/capturas/1c/` e os marcadores pendentes. Os testes e limitações estão nas sessões abaixo. Corrigir eventuais bloqueios nesta mesma branch, repetir os testes afetados e atualizar esta passagem.
+3. **Franklin:** conferir as quatro páginas no celular e aprovar o PR. Não tratar o parecer interno do agente revisor como aprovação do Franklin.
+4. Somente após aprovação: fazer o merge e registrar a publicação conforme o fluxo do projeto. Atualizar o estado, o commit de merge e esta passagem com o resultado real.
+5. Planejar a **1D** de `docs/04-roteiro-de-tarefas.md` em outra branch. Não iniciar 1D nem registrar publicação da 1C antes do merge.
+
+## Especificação preservada – Etapa 1C implementada
 
 **Objetivo:** dar conteúdo às 4 páginas que hoje só têm `[PENDENTE]`, sem inventar nada sobre a Rô. O que não estiver confirmado aparece com o marcador visível `<span class="pendente">[PENDENTE: ...]</span>` (classe já existe em `css/componentes.css`).
 
@@ -94,6 +105,29 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - Domínio, contador de visitas e link "Área da Rô": como antes.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-22 16h10 – Codex (Work) – Envio e abertura do PR #3
+
+- Fez: após o Franklin instalar a integração GitHub, enviou implementação (`0404d4f`) e capturas (`a31fee5`) à branch existente, com atualização de referência em avanço normal, sem força. Abriu o [PR #3](https://github.com/nilknarfsam/site-delicias-da-ro/pull/3) para `main`, com o que mudou, como testar, testes efetuados, limitações e lista de pendências. Esta passagem é atualizada no commit documental final do PR.
+- Verificou: árvore de código remota idêntica à implementação local testada (`0566ab1`); oito capturas com os mesmos hashes Git locais. Nenhum código mudou depois dos testes e da revisão descritos na sessão de implementação.
+- Continuidade: commits locais anteriores (`0566ab1`, `3778d22`) foram preservados; os commits enviados pela API têm hashes próprios, listados no estado atual. Não aplicar os commits locais novamente sobre a branch remota.
+- Ficou faltando: revisão do Claude no PR, teste em aparelho físico e aprovação do Franklin. Nada foi mesclado ou publicado; registro de publicações da 1C não alterado.
+
+
+### 2026-10-22 15h26 – Codex (Work) – Implementação e revisão da 1C
+
+- Fez: sincronizou a branch indicada; leu as regras e docs/01 a 07. Escritor implementou CSS e as 4 views; principal criou `js/dados/encomendas.js`, `js/telas/encomendas.js`, `js/telas/datas-especiais.js`, integrou rotas, preencheu contato/Instagram/horário de `site.js` e estendeu WhatsApp com prioridade mensagem → produto → padrão. O aviso de retirada é importado do cardápio. Regras e sabores usam `confirmado: false`, e a FAQ reutiliza as regras. Nenhum preço, endereço ou formulário foi acrescentado.
+- Escape: todos os textos dinâmicos passam por `escapar()`; o caminho da foto no template compartilhado também foi escapado para atender ao critério de dados seguros nas novas telas.
+- Testou: `python -m http.server 8080` + Playwright/Chromium, **6 rotas × 390px e 1280px**: um `h1`, foco no título, zero rolagem lateral (incluindo limites dos elementos), zero imagens quebradas. Nas 4 telas novas, todos os links e summaries têm largura/altura ≥44px. FAQ: Enter abre, Espaço fecha, foco visível. Menu móvel, voltar/avançar e F5 passaram.
+- Testou WhatsApp: links reais padrão, produto e campanha com `wa.me/5592981681827?text=` correto; todas as 5 chamadas de Datas especiais com a mensagem certa. Casos adicionais: prioridade personalizada sobre produto, acentos/aspas/`&` e mensagem vazia voltando ao produto. Testou também texto com marcação HTML exibido literalmente e mudança de `confirmado` removendo só o marcador correspondente.
+- Fontes/rede: a primeira execução registrou 4 erros de rede do Google Fonts (mesma limitação já observada na 1A). Para as capturas e verificação final, as **mesmas fontes do Google Fonts foram baixadas e servidas localmente apenas pelo teste**, sem mudar o site. Nessa execução: zero erros de console, zero falhas de requisição. O acesso direto ao Google Fonts neste ambiente não foi validado.
+- Contraste: `node ferramentas/contraste.mjs` aprovado; acrescentados chocolate/branco (13,43:1) e cacau/branco (10,28:1). `git diff --check` aprovado.
+- Capturas: 8 PNGs em `docs/capturas/1c/` (Encomendas, Datas especiais, Sobre e Contato nas duas larguras); conferência visual das telas de encomendas e campanha/contato.
+- Revisão: agente **revisor** leu o diff contra `origin/main`, regras e especificação, incluindo arquivos novos. Parecer: **sem bloqueios de implementação**. Também aprovou 5 casos WhatsApp em Node, contraste e whitespace. A única pendência operacional indicada foi completar capturas e passagem (feitas nesta sessão).
+- Pendências de conteúdo visíveis: confirmação das 6 regras, 4 grupos de sabores, resposta sobre personagem e horário; foto real e produtos da época nas 4 datas; história, tempo de confeitaria e foto opcional da Rô; região de entrega e Perfil da Empresa no Google. São pendências previstas, não conteúdo inventado.
+- Ficou faltando: autenticar GitHub, enviar commits, abrir PR para `main` e obter revisão do Claude/Franklin. Sem merge e sem registro de publicação da 1C. Continua pendente testar em aparelho físico.
+- Observações: as alterações de `AGENTS.md` e o registro da 1B já vieram do commit `71f1b5c` preparado pelo Claude; não foram alterados nesta sessão.
+
 
 ### 2026-10-22 15h20 – Claude (celular, nuvem) – Pedido da 1C para o Codex
 
