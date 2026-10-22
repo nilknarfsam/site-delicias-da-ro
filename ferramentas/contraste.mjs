@@ -30,6 +30,7 @@ const pares = [
   ['cor-branco', 'cor-acao-escura', 'botão principal (hover)', 4.5],
   ['cor-branco', 'cor-texto-2', 'botão contorno (hover) e "pular para o conteúdo"', 4.5],
   ['cor-rodape-texto', 'cor-rodape', 'texto do rodapé', 4.5],
+  ['cor-acao', 'cor-fundo', 'palavra em destaque na capa (Vermelho Morango)', 4.5],
   ['cor-rosa', 'cor-fundo', 'Rosa Rô (só detalhe, não texto)', 0],
   ['cor-caramelo', 'cor-fundo', 'Caramelo (só fios, não texto)', 0],
 ];

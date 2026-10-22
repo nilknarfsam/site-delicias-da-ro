@@ -4,28 +4,36 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- Fase/etapa: 1A – Estrutura e design system (pronta, aguardando revisão)
-- Branch ativa: `feat/1a-estrutura-design-system`
-- PR aberto: 1A (ver GitHub)
-- Situação: aguardando o Franklin escolher a fonte dos títulos e aprovar o PR. Depois do merge: ligar o GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root).
+- Fase/etapa: 1B – Início e Cardápio (pronta, aguardando revisão). 1A publicada no `main` (PR #1).
+- Branch ativa: `feat/1b-inicio-cardapio`
+- PR aberto: #2
+- Situação: aguardando o Franklin aprovar o PR #2. GitHub Pages ainda precisa ser ligado (Settings → Pages → Deploy from a branch → `main` / root); a sessão na nuvem não consegue conferir isso pela API.
 
 ## Próxima tarefa (exata)
 
-- Objetivo: etapa **1B** (Início e Cardápio) do `docs/04-roteiro-de-tarefas.md`. Mostrar o plano e esperar o ok.
-- Antes: aplicar a fonte escolhida (apagar a outra do link do Google Fonts no `index.html` e no `design-system.html`, remover o bloco `[data-fonte="cormorant"]` e o trecho `?fonte=` do `js/main.js`, ou trocar `--fonte-titulo` se a escolha for Cormorant).
-- Arquivos envolvidos: `html/inicio.html`, `html/cardapio.html`, `js/dados/cardapio.js` (novo), `js/telas/cardapio.js` (novo), `css/componentes.css`, `imagens/produtos/`.
-- Critério de pronto: capa de impacto, destaques e prévia do cardápio no Início; Cardápio por categoria com cartão (foto real 4:5, nome, descrição, "a partir de" ou "consulte", botão "Pedir este" com `data-produto`). O que faltar da Rô fica `[PENDENTE: ...]`.
+- Objetivo: etapa **1C** (Encomendas, Datas especiais, Sobre a Rô, Contato) do `docs/04-roteiro-de-tarefas.md`. Mostrar o plano e esperar o ok.
+- Fonte de dados já disponível: o modelo de orçamento do app antigo (`precifica_ro_mobile`, `lib/presentation/sales/controllers/orcamentos_controller.dart`) traz recheios, sinal de 50 %, antecedência mínima de 3 dias, retirada com hora marcada, entrega com taxa e formas de pagamento. **Confirmar com a Rô antes de publicar** (o texto é antigo e tem o @ velho).
+- Arquivos envolvidos: `html/encomendas.html`, `html/datas-especiais.html`, `html/sobre.html`, `html/contato.html`, talvez `js/dados/encomendas.js`.
+- Critério de pronto: as 4 páginas com conteúdo confirmado ou `[PENDENTE: ...]`; aviso do Bentô Cake na Encomendas; nada de endereço residencial.
 - Testes a rodar: `python -m http.server 8080`, 390px e 1280px, `node ferramentas/contraste.mjs`.
 
 ## Dúvidas para o Franklin
 
-- Fonte dos títulos: Fraunces (A, padrão) ou Cormorant Garamond (B)? Comparar em `design-system.html` ou `index.html?fonte=cormorant`.
-- Domínio: `deliciasdaro.com.br` (confirmar disponibilidade no Registro.br quando for comprar).
-- Contador: GoatCounter ou o mesmo do samfieldsoak?
-- Link "Área da Rô" no rodapé ou sem link?
-- Lista do cardápio, fotos reais e preço "a partir de" ou "consulte" (para a 1B).
+- Fonte dos títulos: ficou a Fraunces (A) por padrão, porque não houve escolha. Se preferir a B, é só avisar (trocar `--fonte-titulo`).
+- Preços no cardápio: "a partir de" ou "valores sob consulta" (hoje: sob consulta; `mostrarPrecos = false` em `js/dados/cardapio.js`).
+- Fotos reais e descrição dos itens marcados `[PENDENTE]` no cardápio (decorados, 2 andares, caseiros, doces, cupcakes, kits).
+- Arte de capa feita para o site (opcional) e anos de confeitaria para os contadores.
+- Domínio, contador de visitas e link "Área da Rô": como antes.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-22 14h05 – Claude (celular, nuvem) – Etapa 1B
+
+- Fez: Início com capa (título, chamada da campanha vintage, duas fotos reais e selo do R), "Queridinhos da casa" com 3 destaques, prévia do cardápio em atalhos e chamada final. Cardápio com 6 categorias montadas de `js/dados/cardapio.js` por `js/telas/cardapio.js`, cartões com foto real 4:5 (WebP 480/800 + JPG) ou espaço `[PENDENTE: foto real]` com o R do logo (sem imagem gerada), aviso de retirada no Bentô Cake, botão "Pedir este" com mensagem citando o produto. Atalho `#/cardapio/<categoria>` rola até a seção e põe o foco nela.
+- Fotos usadas: as 4 da pasta do Drive `Claude/Design/01 - Delícias da Rô/Fotos Originais` (Bentô Cake com morangos, vintage coração de chocolate, vintage com laços dourados, vintage com laços marrons).
+- Testou: Chromium em 390px e 1280px: 6 rotas com 1 `h1` e sem rolagem lateral, 3 destaques, 6 categorias e 11 cartões, link do WhatsApp do Bentô com o nome do produto, aviso do Bentô presente, subseção `#/cardapio/kits` com foco e rolagem certos, 0 imagens quebradas, 0 erros de console. Contraste ok (Vermelho Morango sobre o fundo, usado na palavra "encantam": 5,02:1).
+- Ficou faltando: o que depende da Rô (lista acima).
+
 
 ### 2026-10-22 13h50 – Claude (celular, nuvem) – Etapa 1A
 
