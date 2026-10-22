@@ -24,7 +24,7 @@ export function fotoProduto(item, carregarTarde = true) {
         <span class="pendente">[PENDENTE: foto real]</span>
       </div>`;
   }
-  const base = 'imagens/produtos/' + item.foto.arquivo;
+  const base = escapar('imagens/produtos/' + item.foto.arquivo);
   return `
     <picture class="cartao__foto">
       <source type="image/webp" srcset="${base}-480.webp 480w, ${base}-800.webp 800w" sizes="(min-width: 992px) 380px, (min-width: 768px) 45vw, 92vw">

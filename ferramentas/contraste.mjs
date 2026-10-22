@@ -24,6 +24,8 @@ const pares = [
   ['cor-texto', 'cor-fundo', 'texto corrido no fundo', 4.5],
   ['cor-texto', 'cor-fundo-2', 'texto corrido em faixa Blush', 4.5],
   ['cor-texto', 'cor-creme', 'texto em cartão creme / marcador pendente', 4.5],
+  ['cor-texto', 'cor-branco', 'texto de cartões e respostas da FAQ', 4.5],
+  ['cor-texto-2', 'cor-branco', 'títulos, links e perguntas em cartões brancos', 4.5],
   ['cor-texto-2', 'cor-fundo', 'títulos e links no fundo', 4.5],
   ['cor-texto-2', 'cor-fundo-2', 'títulos e menu ativo em Blush', 4.5],
   ['cor-branco', 'cor-acao', 'botão principal', 4.5],

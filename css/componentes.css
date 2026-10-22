@@ -349,3 +349,75 @@
 .categoria:first-child { border-top: 0; padding-top: 0; }
 .categoria__cabecalho { margin-bottom: var(--espaco-4); }
 .categoria__descricao { margin: 0; font-size: var(--texto-m); }
+
+/* ---------- Páginas de informação (etapa 1C) ---------- */
+.informacoes { margin-bottom: var(--espaco-6); }
+
+.passos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  margin: 0;
+  padding-left: var(--espaco-5);
+}
+.passos li { padding: var(--espaco-3); background: var(--cor-fundo-2); border-radius: var(--raio-pequeno); }
+.passos li::marker { color: var(--cor-texto-2); font-weight: 800; }
+.passos a { display: inline-flex; align-items: center; min-height: var(--toque-minimo); }
+
+.regras { list-style: none; margin: 0; padding: 0; }
+.regras li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2) var(--espaco-3);
+  padding-block: var(--espaco-3);
+  border-bottom: 1px solid var(--cor-borda);
+}
+.regras li:first-child { padding-top: 0; }
+
+.faq { display: flex; flex-direction: column; gap: var(--espaco-3); }
+.faq details { border: 1px solid var(--cor-borda); border-radius: var(--raio-pequeno); background: var(--cor-branco); }
+.faq summary {
+  min-height: var(--toque-minimo);
+  padding: var(--espaco-3);
+  color: var(--cor-texto-2);
+  font-weight: 800;
+  cursor: pointer;
+}
+.faq details > p { padding: 0 var(--espaco-3); }
+.faq .pendente { margin-top: var(--espaco-2); }
+
+.contato-cartoes { display: flex; flex-direction: column; gap: var(--espaco-4); margin-bottom: var(--espaco-6); }
+.contato-cartoes__cartao {
+  flex: 1;
+  min-width: 0;
+  padding: var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-branco);
+  box-shadow: var(--sombra);
+}
+.contato-cartoes__cartao h2 { font-size: var(--texto-g); }
+.contato-cartoes__cartao .botao { max-width: 100%; overflow-wrap: anywhere; }
+
+.campanha-vintage {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-5);
+  padding: var(--espaco-4);
+  margin-bottom: var(--espaco-6);
+  border-radius: var(--raio);
+  background: var(--cor-fundo-2);
+}
+.campanha-vintage__texto { min-width: 0; }
+.campanha-vintage__fotos { display: flex; gap: var(--espaco-3); min-width: 0; }
+.campanha-vintage__fotos .cartao__foto { flex: 1; min-width: 0; overflow: hidden; border-radius: var(--raio-pequeno); }
+
+@media (min-width: 768px) {
+  .passos { flex-direction: row; flex-wrap: wrap; gap: var(--espaco-4) var(--espaco-6); }
+  .passos li { flex: 1 1 calc(50% - var(--espaco-6)); }
+  .contato-cartoes { flex-direction: row; }
+  .campanha-vintage { flex-direction: row; align-items: center; padding: var(--espaco-5); }
+  .campanha-vintage__texto { flex: 1; }
+  .campanha-vintage__fotos { flex: 1; }
+}
