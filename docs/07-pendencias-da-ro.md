@@ -1,0 +1,36 @@
+# 07 – Pendências da Rô (e do Franklin)
+
+Marque com [x] quando resolver. O que faltar quando o Claude Code chegar na etapa fica como `[PENDENTE: ...]` no site.
+
+## Para o site público (Fase 1)
+
+- [ ] Lista final do cardápio, por categoria.
+- [ ] Foto real de cada item (as que existem: `Claude/Design/01 - Delícias da Rô/Fotos Originais`, `Sobremesas` e `Natal 2024`).
+- [ ] Mostrar preço "a partir de" ou só "consulte"? (valores já confirmados em 17/10: Kit Parabéns R$ 50; bolo 11 cm R$ 100; 15 cm R$ 152).
+- [ ] Antecedência mínima (o modelo de orçamento atual diz 3 dias) e sinal (atual: 50 %).
+- [ ] Formas de pagamento (atual: PIX, dinheiro e cartões).
+- [ ] Retirada: como descrever o local sem endereço pessoal. Entrega: faz? bairros e taxa?
+- [ ] Horário: confirmar segunda a sábado, 9h às 18h.
+- [ ] História contada pela Rô (texto ou áudio), faculdade e ano de formação (se quiser mostrar).
+- [ ] Foto da Rô (se quiser aparecer).
+- [ ] Números para os contadores da página inicial (ex.: anos de confeitaria). Só números reais.
+- [ ] Logo do site: oficial ou o 3D de 19/10?
+
+## Para a área da Rô (Fase 2)
+
+- [ ] E-mail Google da Rô.
+- [ ] O que mais incomodou no app antigo (telas, botões, passos).
+- [ ] Custos indiretos: usar a taxa operacional de 30 % ou detalhar (embalagem, gás, mão de obra…)? Ver `docs/06`, item 5.4.
+- [ ] Conferir os valores dos modelos de orçamento atuais.
+- [ ] Exportar os dados do app do celular quando a versão nova do APK estiver pronta.
+
+## Para o módulo de massas (Fase 3)
+
+- [ ] Respostas das perguntas de `docs/06`, seção 6.
+
+## Do Franklin
+
+- [ ] Criar o repositório e o projeto no Firebase (`docs/04`, Fase 0).
+- [ ] Domínio: confirmar o nome e comprar no Registro.br.
+- [ ] Contador: GoatCounter ou o mesmo do samfieldsoak?
+- [ ] Link "Área da Rô" no rodapé do site ou sem link nenhum?
