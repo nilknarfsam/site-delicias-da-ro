@@ -222,3 +222,130 @@
 .rodape__lista li { margin-bottom: var(--espaco-2); }
 .rodape__lista a { display: inline-flex; align-items: center; min-height: var(--toque-minimo); }
 .rodape__copia { margin-top: var(--espaco-5); padding-top: var(--espaco-4); border-top: 1px solid rgba(255, 247, 245, 0.2); font-size: var(--texto-pequeno); }
+
+/* ---------- Botão largura total ---------- */
+.botao--bloco { width: 100%; }
+
+/* ---------- Capa da página inicial ---------- */
+.capa { padding-bottom: var(--espaco-6); }
+.capa__grade {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-6);
+  align-items: center;
+}
+.capa__texto { max-width: 34rem; text-align: center; }
+.capa__sobretitulo {
+  font-weight: 800;
+  font-size: var(--texto-pequeno);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cor-texto-2);
+}
+.capa__titulo { font-size: var(--texto-h1); margin-bottom: var(--espaco-3); }
+.capa__destaque { font-family: var(--fonte-afetiva); font-weight: 700; color: var(--cor-acao); }
+.capa__chamada { font-size: var(--texto-m); color: var(--cor-texto-2); font-weight: 700; }
+.capa__acoes { display: flex; flex-wrap: wrap; gap: var(--espaco-3); justify-content: center; margin-top: var(--espaco-4); }
+
+.capa__fotos {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 1 / 1.05;
+}
+.capa__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+}
+.capa__foto--1 { position: absolute; left: 0; top: 0; width: 66%; aspect-ratio: 4 / 5; }
+.capa__foto--1 img { border: 6px solid var(--cor-branco); }
+.capa__foto--2 { position: absolute; right: 0; bottom: 0; width: 46%; aspect-ratio: 4 / 5; }
+.capa__foto--2 img { border: 6px solid var(--cor-branco); transform: rotate(3deg); }
+.capa__selo {
+  position: absolute;
+  left: 52%;
+  top: -4%;
+  width: 72px;
+  height: 72px;
+  padding: 6px;
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-caramelo);
+  border-radius: 50%;
+  box-shadow: var(--sombra);
+}
+
+@media (min-width: 992px) {
+  .capa__grade { flex-direction: row; justify-content: space-between; }
+  .capa__texto { text-align: left; }
+  .capa__acoes { justify-content: flex-start; }
+  .capa__fotos { width: 440px; flex: none; }
+}
+
+/* ---------- Seções ---------- */
+.secao__cabecalho { max-width: 40rem; margin-bottom: var(--espaco-5); }
+.chamada-final { text-align: center; }
+
+/* ---------- Chips (atalhos de categoria) ---------- */
+.chips { list-style: none; margin: 0 0 var(--espaco-5); padding: 0; display: flex; flex-wrap: wrap; gap: var(--espaco-2); }
+.chips--centro { justify-content: center; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--toque-minimo);
+  padding: 0 var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pilula);
+  background: var(--cor-branco);
+  color: var(--cor-texto-2);
+  font-weight: 700;
+  text-decoration: none;
+}
+.chip:hover { border-color: var(--cor-texto-2); background: var(--cor-fundo-2); color: var(--cor-texto-2); }
+
+/* ---------- Grade de cartões ---------- */
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--espaco-4);
+}
+
+/* ---------- Cartão de produto ---------- */
+.cartao {
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra);
+}
+.cartao__foto { display: block; aspect-ratio: 4 / 5; background: var(--cor-creme); }
+.cartao__foto img { width: 100%; height: 100%; object-fit: cover; }
+.cartao__foto--vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco-3);
+  padding: var(--espaco-4);
+}
+.cartao__foto--vazia img { width: 96px; height: 96px; opacity: 0.55; }
+.cartao__corpo { display: flex; flex-direction: column; gap: var(--espaco-2); padding: var(--espaco-4); flex: 1; }
+.cartao__titulo { font-size: var(--texto-g); margin: 0; }
+.cartao__texto { margin: 0; }
+.cartao__aviso {
+  margin: 0;
+  padding: var(--espaco-2) var(--espaco-3);
+  border-left: 3px solid var(--cor-caramelo);
+  background: var(--cor-fundo);
+  font-size: var(--texto-pequeno);
+}
+.cartao__preco { margin: auto 0 var(--espaco-2); font-weight: 800; color: var(--cor-texto-2); padding-top: var(--espaco-2); }
+
+/* ---------- Categoria do cardápio ---------- */
+.categoria { padding-block: var(--espaco-5); border-top: 1px solid var(--cor-borda); }
+.categoria:first-child { border-top: 0; padding-top: 0; }
+.categoria__cabecalho { margin-bottom: var(--espaco-4); }
+.categoria__descricao { margin: 0; font-size: var(--texto-m); }

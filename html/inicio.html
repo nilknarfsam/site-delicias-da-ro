@@ -1,14 +1,53 @@
-<section class="container abertura">
-  <picture>
-    <source srcset="imagens/logo/logo-completo.webp" type="image/webp">
-    <img class="abertura__logo" src="imagens/logo/logo-completo.png" width="720" height="755" alt="">
-  </picture>
-  <h1 class="visualmente-oculto">Delícias da Rô: sabores que encantam</h1>
-  <p class="pagina__chamada">Confeitaria da Chef Rosangela Vieira, em Manaus. Bolos decorados, Bentô Cake, doces e kits para a sua festa.</p>
-  <hr class="fio">
-  <div class="abertura__acoes">
-    <a class="botao botao--principal" data-whatsapp href="https://wa.me/5592981681827">Faça sua encomenda</a>
-    <a class="botao botao--contorno" href="#/cardapio">Ver o cardápio</a>
+<section class="capa">
+  <div class="container capa__grade">
+    <div class="capa__texto">
+      <p class="capa__sobretitulo">Delícias da Rô · Manaus</p>
+      <h1 class="capa__titulo">Sabores que <span class="capa__destaque">encantam</span></h1>
+      <p class="capa__chamada">Bolos vintage personalizados para tornar sua festa inesquecível.</p>
+      <p>Confeitaria da Chef Rosangela Vieira: bolos decorados, Bentô Cake, doces e kits para a sua comemoração.</p>
+      <div class="capa__acoes">
+        <a class="botao botao--principal" data-whatsapp href="https://wa.me/5592981681827">Faça sua encomenda</a>
+        <a class="botao botao--contorno" href="#/cardapio">Ver o cardápio</a>
+      </div>
+    </div>
+
+    <div class="capa__fotos" aria-hidden="true">
+      <picture class="capa__foto capa__foto--1">
+        <source type="image/webp" srcset="imagens/produtos/bolo-vintage-coracao-chocolate-480.webp 480w, imagens/produtos/bolo-vintage-coracao-chocolate-800.webp 800w" sizes="(min-width: 992px) 340px, 60vw">
+        <img src="imagens/produtos/bolo-vintage-coracao-chocolate-800.jpg" width="800" height="1000" alt="" fetchpriority="high">
+      </picture>
+      <picture class="capa__foto capa__foto--2">
+        <source type="image/webp" srcset="imagens/produtos/bento-cake-morangos-480.webp 480w" sizes="(min-width: 992px) 240px, 40vw">
+        <img src="imagens/produtos/bento-cake-morangos-800.jpg" width="800" height="1000" alt="">
+      </picture>
+      <img class="capa__selo" src="imagens/logo/logo-r-192.png" width="192" height="192" alt="">
+    </div>
   </div>
-  <p class="mt-5"><span class="pendente">[PENDENTE: capa de impacto, destaques e prévia do cardápio entram na etapa 1B]</span></p>
+</section>
+
+<section class="secao" aria-labelledby="titulo-destaques">
+  <div class="container">
+    <header class="secao__cabecalho">
+      <h2 id="titulo-destaques">Queridinhos da casa</h2>
+      <p>Bolos feitos pela Rô, com foto de verdade.</p>
+    </header>
+    <div class="grade-cartoes" data-destaques></div>
+  </div>
+</section>
+
+<section class="secao secao--alternada" aria-labelledby="titulo-previa">
+  <div class="container texto-centro">
+    <h2 id="titulo-previa">O que tem no cardápio</h2>
+    <ul class="chips chips--centro" data-previa-cardapio></ul>
+    <p class="mt-5"><a class="botao botao--contorno" href="#/cardapio">Ver o cardápio completo</a></p>
+  </div>
+</section>
+
+<section class="secao" aria-labelledby="titulo-pedir">
+  <div class="container chamada-final">
+    <h2 id="titulo-pedir">Vamos adoçar a sua festa?</h2>
+    <p class="abertura__frase">Feito com muito amor</p>
+    <a class="botao botao--principal" data-whatsapp href="https://wa.me/5592981681827">Faça sua encomenda</a>
+    <p class="mt-5"><span class="pendente">[PENDENTE: arte de capa feita para o site e número de anos de confeitaria para os contadores]</span></p>
+  </div>
 </section>

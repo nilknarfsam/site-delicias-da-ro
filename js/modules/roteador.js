@@ -54,12 +54,14 @@ async function renderizar() {
     try { rota.iniciar(app); } catch (e) { console.error('[roteador]', e); }
   }
 
-  const alvo = (secao && document.getElementById(secao)) || app.querySelector('h1');
+  const doSecao = secao && document.getElementById(secao);
+  const alvo = doSecao || app.querySelector('h1');
   if (alvo) {
     alvo.setAttribute('tabindex', '-1');
     alvo.focus({ preventScroll: true });
   }
-  window.scrollTo(0, 0);
+  if (doSecao) doSecao.scrollIntoView({ block: 'start' });
+  else window.scrollTo(0, 0);
 }
 
 export function iniciarRoteador(mapa) {
