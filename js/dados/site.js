@@ -1,0 +1,19 @@
+// Dados comerciais da confeitaria (fonte: conteudo/dados-da-confeitaria.md).
+// Só contato comercial. Nada de endereço residencial.
+
+export const site = {
+  nome: 'Delícias da Rô',
+  slogan: 'Sabores que encantam',
+  responsavel: 'Chef Rosangela Vieira',
+  cidade: 'Manaus – AM',
+  whatsapp: {
+    numero: '5592981681827',          // (92) 98168-1827
+    exibicao: '(92) 98168-1827',
+    mensagemPadrao: 'Olá, Rô! Vim pelo site e quero fazer uma encomenda.',
+  },
+  instagram: {
+    usuario: '@chefrosangelavieira',
+    url: 'https://instagram.com/chefrosangelavieira',
+  },
+  horario: 'Segunda a sábado, das 9h às 18h', // a confirmar com a Rô (docs/07)
+};
