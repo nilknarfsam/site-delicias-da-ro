@@ -15,10 +15,10 @@ Mais tarde, a área `app/` vai receber o **Precifica Rô Web** (só para a Rô, 
 |---|---|---|
 | `#/inicio` | Início | Capa com fotos reais, destaques, prévia do cardápio (1B); arte de capa pendente |
 | `#/cardapio` | Cardápio | 6 categorias, cartões com foto real ou `[PENDENTE]`; atalhos `#/cardapio/<categoria>` (1B) |
-| `#/encomendas` | Encomendas | Estrutura pronta; conteúdo na etapa 1C |
-| `#/datas-especiais` | Datas especiais | Estrutura pronta; conteúdo na etapa 1C |
-| `#/sobre` | Sobre a Rô | Estrutura pronta; conteúdo na etapa 1C |
-| `#/contato` | Contato | Estrutura pronta; conteúdo na etapa 1C |
+| `#/encomendas` | Encomendas | 4 passos, regras e sabores a confirmar, aviso de retirada e perguntas frequentes (1C) |
+| `#/datas-especiais` | Datas especiais | Campanha vintage com fotos reais e 4 datas com produtos e fotos pendentes (1C) |
+| `#/sobre` | Sobre a Rô | Apresentação confirmada; história, tempo de confeitaria e foto opcionais pendentes (1C) |
+| `#/contato` | Contato | WhatsApp e Instagram comerciais; horário a confirmar, região e Perfil no Google pendentes (1C) |
 
 Rota inexistente volta para `#/inicio`. `design-system.html` mostra cores, fontes e componentes (fora do menu).
 
@@ -33,7 +33,8 @@ css/                variaveis → base → layout → componentes → utilitario
 js/main.js          ponto de entrada
 js/dados/site.js    contato comercial (WhatsApp, Instagram, horário)
 js/dados/cardapio.js categorias e itens do cardápio (sem preços enquanto a Rô não decidir)
-js/telas/           inicio.js e cardapio.js (montam as telas a partir dos dados)
+js/dados/encomendas.js passos, regras e sabores com confirmado, FAQ e campanhas (sem preços)
+js/telas/           inicio.js, cardapio.js, encomendas.js e datas-especiais.js
 imagens/produtos/   fotos reais em 4:5 (WebP 480/800 + JPG)
 js/modules/         roteador, menu, templates (escapar), whatsapp
 imagens/logo/       logo original em WebP + PNG e ícones
@@ -65,4 +66,4 @@ Uma etapa por branch `feat/...` com PR. Projeto em dupla Claude + Codex: ler [`A
 
 ## Uso de IA
 
-Site planejado e codificado com o Claude (Anthropic), revisado e aprovado pelo Franklin. Fotos dos produtos são sempre reais; o logo é o arquivo original.
+Site desenvolvido com Claude e Codex, com revisão do Franklin por etapa. Fotos dos produtos são sempre reais; o logo é o arquivo original.
