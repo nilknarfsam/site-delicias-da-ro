@@ -1,0 +1,68 @@
+/* =========================================================
+   Design System – Delícias da Rô
+   Único lugar com valores soltos (cores, tipografia, espaços).
+   Breakpoints (media query não aceita var()):
+     576px · 768px · 992px · 1200px
+   ========================================================= */
+
+:root {
+  /* Cores da marca (manual v2, medidas no logo) */
+  --cor-fundo: #FFF7F5;        /* Fundo Nuvem */
+  --cor-fundo-2: #FBE3E1;      /* Blush */
+  --cor-creme: #EEE4D1;        /* Creme Chantilly */
+  --cor-borda: #F6CBCD;        /* Borda Pétala */
+  --cor-texto: #4A2329;        /* chocolate escuro: texto corrido */
+  --cor-texto-2: #6E2A33;      /* Cacau: títulos e subtítulos */
+  --cor-rosa: #E99892;         /* Rosa Rô: só detalhes e ícones grandes */
+  --cor-caramelo: #C58B4B;     /* só fios, linhas e selos (não usar em texto) */
+  --cor-acao: #CC2D1F;         /* Vermelho Morango: botão principal */
+  --cor-acao-escura: #A82418;  /* hover/ativo do botão principal */
+  --cor-branco: #FFFFFF;
+  --cor-rodape: #4A2329;
+  --cor-rodape-texto: #FFF7F5;
+
+  /* Tipografia */
+  --fonte-titulo: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --fonte-texto: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fonte-afetiva: 'Dancing Script', cursive;
+
+  /* Escala modular 1,25 a partir de 16px */
+  --texto-pequeno: 0.875rem;   /* 14px, mínimo */
+  --texto-base: 1rem;          /* 16px */
+  --texto-m: 1.25rem;          /* 20px */
+  --texto-g: 1.5625rem;        /* 25px */
+  --texto-h2: clamp(1.6rem, 1.2rem + 1.6vw, 2.25rem);
+  --texto-h1: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
+  --altura-linha: 1.6;
+  --altura-linha-titulo: 1.15;
+
+  /* Espaços (escala de 8px) */
+  --espaco-1: 0.25rem;
+  --espaco-2: 0.5rem;
+  --espaco-3: 1rem;
+  --espaco-4: 1.5rem;
+  --espaco-5: 2rem;
+  --espaco-6: 3rem;
+  --espaco-7: 4rem;
+  --espaco-8: 6rem;
+
+  /* Forma */
+  --raio: 16px;
+  --raio-pequeno: 10px;
+  --raio-pilula: 999px;
+  --sombra: 0 6px 24px rgba(74, 35, 41, 0.08);
+  --sombra-forte: 0 10px 32px rgba(74, 35, 41, 0.16);
+  --transicao: 180ms ease;
+
+  /* Layout */
+  --largura-container: 1180px;
+  --gutter: 1rem;
+  --colunas: 12;
+  --altura-cabecalho: 72px;
+  --toque-minimo: 44px;
+}
+
+/* Opção B de fonte de título, para comparar (?fonte=cormorant) */
+:root[data-fonte="cormorant"] {
+  --fonte-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
