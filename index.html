@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delícias da Rô | Sabores que encantam</title>
+  <meta name="description" content="Delícias da Rô, confeitaria da Chef Rosangela Vieira em Manaus. Bolos decorados, Bentô Cake, doces e kits para festa. Encomendas pelo WhatsApp.">
+  <meta name="theme-color" content="#FFF7F5">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagens/logo/logo-r-32.png">
+  <link rel="apple-touch-icon" href="imagens/logo/logo-r-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Duas opções de fonte de título carregadas só durante a escolha (etapa 1A); depois fica uma. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Dancing+Script:wght@700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap">
+
+  <link rel="stylesheet" href="css/variaveis.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/utilitarios.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="pular" href="#app">Pular para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__barra">
+      <a class="cabecalho__logo" href="#/inicio">
+        <picture>
+          <source srcset="imagens/logo/logo-horizontal.webp" type="image/webp">
+          <img src="imagens/logo/logo-horizontal.png" width="552" height="200" alt="Delícias da Rô, página inicial">
+        </picture>
+      </a>
+
+      <nav class="menu" aria-label="Principal">
+        <button class="menu__botao" type="button" aria-expanded="false" aria-controls="menu-principal">
+          <span class="menu__icone" aria-hidden="true"></span>
+          <span class="menu__rotulo">Menu</span>
+        </button>
+        <ul class="menu__lista" id="menu-principal" data-aberto="false">
+          <li><a class="menu__link" href="#/inicio" data-rota="inicio">Início</a></li>
+          <li><a class="menu__link" href="#/cardapio" data-rota="cardapio">Cardápio</a></li>
+          <li><a class="menu__link" href="#/encomendas" data-rota="encomendas">Encomendas</a></li>
+          <li><a class="menu__link" href="#/datas-especiais" data-rota="datas-especiais">Datas especiais</a></li>
+          <li><a class="menu__link" href="#/sobre" data-rota="sobre">Sobre a Rô</a></li>
+          <li><a class="menu__link" href="#/contato" data-rota="contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <noscript>
+      <div class="container">
+        <p>Para ver o site, ative o JavaScript. Encomendas pelo WhatsApp (92) 98168-1827 ou pelo Instagram @chefrosangelavieira.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="rodape">
+    <div class="container grid">
+      <div class="col-md-6 col-lg-4">
+        <div class="rodape__marca">
+          <img src="imagens/logo/logo-r-192.png" width="192" height="192" alt="">
+          <div>
+            <p class="rodape__nome">Delícias da Rô</p>
+            <p class="rodape__slogan">Sabores que encantam</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h2 class="rodape__titulo">Encomendas</h2>
+        <ul class="rodape__lista">
+          <li><a data-whatsapp href="https://wa.me/5592981681827">WhatsApp (92) 98168-1827</a></li>
+          <li><a href="https://instagram.com/chefrosangelavieira" target="_blank" rel="noopener">Instagram @chefrosangelavieira</a></li>
+        </ul>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <h2 class="rodape__titulo">Atendimento</h2>
+        <p>Segunda a sábado, das 9h às 18h<br>Manaus – AM</p>
+      </div>
+      <p class="rodape__copia">© <span id="ano">2026</span> Delícias da Rô · Chef Rosangela Vieira</p>
+    </div>
+  </footer>
+
+  <a class="whats-flutuante" data-whatsapp href="https://wa.me/5592981681827" aria-label="Fazer pedido no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.9-.9L3 20.5l1.5-4.6A8.4 8.4 0 1 1 21 11.5z"/>
+      <path d="M8.5 9.5c.3 2.3 2.7 4.7 5 5l1.4-1.4 2 1"/>
+    </svg>
+    <span class="whats-flutuante__texto">Fazer pedido</span>
+  </a>
+</body>
+</html>

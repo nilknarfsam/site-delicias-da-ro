@@ -1,0 +1,36 @@
+/* Container e grid de 12 colunas (macro). Componentes usam Flexbox. */
+
+.container {
+  width: 100%;
+  max-width: var(--largura-container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--colunas), minmax(0, 1fr));
+  gap: var(--espaco-4);
+}
+.grid > * { grid-column: span 12; }
+
+@media (min-width: 768px) {
+  .col-md-6 { grid-column: span 6; }
+  .col-md-4 { grid-column: span 4; }
+}
+@media (min-width: 992px) {
+  .col-lg-4 { grid-column: span 4; }
+  .col-lg-3 { grid-column: span 3; }
+}
+
+main#app {
+  flex: 1;
+  padding-block: var(--espaco-6) var(--espaco-8);
+}
+
+.secao { padding-block: var(--espaco-6); }
+.secao--alternada { background: var(--cor-fundo-2); }
+
+@media (min-width: 768px) {
+  :root { --gutter: 1.5rem; }
+}
