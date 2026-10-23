@@ -10,7 +10,7 @@ export function iniciarDatasEspeciais(app) {
         <a class="botao botao--principal" data-whatsapp data-mensagem="${escapar(campanhaVintage.mensagem)}" href="#/contato">${escapar(campanhaVintage.botao)}</a>
       </div>
       <div class="campanha-vintage__fotos">
-        ${campanhaVintage.fotos.map((item) => fotoProduto(item)).join('')}
+        ${campanhaVintage.fotos.map((item) => fotoProduto(item, false)).join('')}
       </div>
     </section>`;
 

@@ -47,7 +47,7 @@ async function renderizar() {
   molde.innerHTML = html;
   app.replaceChildren(molde.content);
   app.removeAttribute('aria-busy');
-  document.title = nome === 'inicio' && ok ? `${NOME_SITE} | Sabores que encantam` : `${NOME_SITE} | ${titulo}`;
+  document.title = nome === 'inicio' && ok ? `${NOME_SITE} | Bolos e doces em Manaus` : `${NOME_SITE} | ${titulo}`;
   marcarMenuAtivo(ok ? nome : '');
 
   if (ok && rota.iniciar) {
@@ -70,6 +70,35 @@ async function renderizar() {
 export function iniciarRoteador(mapa) {
   rotas = mapa;
   app = document.getElementById('app');
+  const focarSecao = () => {
+    const secao = location.hash.slice(2).split('/')[1];
+    const alvo = secao && document.getElementById(secao);
+    if (alvo) {
+      alvo.scrollIntoView({ block: 'start' });
+      alvo.setAttribute('tabindex', '-1');
+      alvo.focus({ preventScroll: true });
+      return;
+    }
+    window.scrollTo(0, 0);
+    const titulo = app.querySelector('h1');
+    if (titulo) {
+      titulo.setAttribute('tabindex', '-1');
+      titulo.focus({ preventScroll: true });
+    }
+  };
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest?.('a[href^="#/"]');
+    if (link && link.getAttribute('href') === location.hash) {
+      e.preventDefault();
+      focarSecao();
+      return;
+    }
+    const pular = e.target.closest?.('a.pular');
+    if (pular) {
+      e.preventDefault();
+      app.focus();
+    }
+  });
   window.addEventListener('hashchange', () => {
     if (!location.hash.startsWith('#/')) return; // âncoras comuns (ex.: #app) não são rotas
     fecharMenu();
