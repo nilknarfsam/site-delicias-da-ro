@@ -11,6 +11,12 @@ export const site = {
     exibicao: '(92) 98168-1827',
     mensagemPadrao: 'Olá, Rô! Vim pelo site e quero fazer uma encomenda.',
   },
+  // Contador de visitas (GoatCounter, sem cookies). Código vazio = contador desligado.
+  // Ex.: 'deliciasdaro' para https://deliciasdaro.goatcounter.com
+  contador: { codigo: '' },
+  // Números da página inicial. Só números reais passados pela Rô (docs/07).
+  // Formato: { valor: '10', rotulo: 'anos de confeitaria' }. Lista vazia = seção escondida.
+  numeros: [],
   instagram: {
     usuario: '@chefrosangelavieira',
     url: 'https://instagram.com/chefrosangelavieira',

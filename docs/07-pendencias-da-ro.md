@@ -32,5 +32,5 @@ Marque com [x] quando resolver. O que faltar quando o Claude Code chegar na etap
 
 - [ ] Criar o repositório e o projeto no Firebase (`docs/04`, Fase 0).
 - [ ] Domínio: confirmar o nome e comprar no Registro.br.
-- [ ] Contador: GoatCounter ou o mesmo do samfieldsoak?
+- [ ] Contador: criar a conta grátis no GoatCounter e colocar o código em `js/dados/site.js` (`contador.codigo`). O contador já está pronto e fica desligado até lá.
 - [ ] Link "Área da Rô" no rodapé do site ou sem link nenhum?

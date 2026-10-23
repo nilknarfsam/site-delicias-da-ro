@@ -62,6 +62,9 @@ async function renderizar() {
   }
   if (doSecao) doSecao.scrollIntoView({ block: 'start' });
   else window.scrollTo(0, 0);
+
+  // Aviso para quem precisa saber que a tela terminou de abrir (ex.: contador de visitas).
+  window.dispatchEvent(new CustomEvent('rota-renderizada', { detail: { nome, ok } }));
 }
 
 export function iniciarRoteador(mapa) {

@@ -4,97 +4,21 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- Fase/etapa: **1C implementada, testada e em revisão no PR #3**. 1A e 1B já estão no `main` (PRs #1 e #2).
-- Branch ativa: `feat/1c-paginas-de-informacao`.
-- Commit de implementação no GitHub: `0404d4f460e4204fa20af2b0db5bd60bd024234b`.
-- Commit de capturas no GitHub: `a31fee544345eca9f31a47351d60ff3b092f702a`.
-- PR aberto para `main`: **[#3 – feat(site): páginas de informação da etapa 1C](https://github.com/nilknarfsam/site-delicias-da-ro/pull/3)**.
-- Envio: concluído pela integração GitHub após o Franklin instalá-la. Os commits remotos têm as mesmas árvores/arquivos testados localmente; capturas conferidas por hash. A tentativa inicial pelo terminal não tinha credencial; o bloqueio foi resolvido pela integração.
-- Situação: escritor e revisor utilizados conforme `AGENTS.md`; parecer interno sem bloqueios. Aguardando revisão do Claude no PR e aprovação do Franklin antes de qualquer merge/publicação.
-- GitHub Pages: habilitação pelo Franklin ainda pendente conforme a sessão anterior; não alterada nesta etapa.
+- Fase/etapa: **1D implementada, testada e em revisão** na branch `feat/1d-ligacoes-e-numeros`. 1A, 1B e 1C estão no `main` (PRs #1, #2 e #3) e publicadas em https://nilknarfsam.github.io/site-delicias-da-ro/.
+- O que a 1D entrega: `robots.txt`, `sitemap.xml`, ícone 192px, canonical, Open Graph e Twitter Card com a prévia `imagens/og/og-delicias-da-ro.jpg` (logo original + 2 fotos reais, sem IA), JSON-LD `Bakery` (sem horário, rua ou preço), contador GoatCounter em `js/modules/contador.js` (desligado até haver código) e a seção "A Rô em números" (escondida até haver números reais).
 
-## Próxima tarefa (exata) – Revisar o PR #3 da 1C
+## Próxima tarefa (exata) – Aprovar a 1D e preparar a 1E
 
-1. Ler `AGENTS.md`, `CLAUDE.md` e esta passagem. Conferir o PR [#3](https://github.com/nilknarfsam/site-delicias-da-ro/pull/3), branch `feat/1c-paginas-de-informacao`, e sincronizar um checkout limpo.
-2. **Claude:** revisar o diff da 1C contra a especificação preservada abaixo, incluindo as capturas em `docs/capturas/1c/` e os marcadores pendentes. Os testes e limitações estão nas sessões abaixo. Corrigir eventuais bloqueios nesta mesma branch, repetir os testes afetados e atualizar esta passagem.
-3. **Franklin:** conferir as quatro páginas no celular e aprovar o PR. Não tratar o parecer interno do agente revisor como aprovação do Franklin.
-4. Somente após aprovação: fazer o merge e registrar a publicação conforme o fluxo do projeto. Atualizar o estado, o commit de merge e esta passagem com o resultado real.
-5. Planejar a **1D** de `docs/04-roteiro-de-tarefas.md` em outra branch. Não iniciar 1D nem registrar publicação da 1C antes do merge.
+1. **Franklin:** conferir o PR da 1D e aprovar. Depois do merge, colar o link do site no WhatsApp para ver a prévia.
+2. **Franklin:** criar a conta no GoatCounter e passar o código; colocar em `site.contador.codigo` (`js/dados/site.js`) num PR pequeno.
+3. Depois do merge: registrar a 1D em `docs/registro-de-publicacoes.md` e validar a prévia no depurador do Facebook (developers.facebook.com/tools/debug) e o JSON-LD no Teste de resultados avançados do Google (search.google.com/test/rich-results).
+4. Planejar a **1E** (publicação e links marcados para a bio e o Google).
 
-## Especificação preservada – Etapa 1C implementada
-
-**Objetivo:** dar conteúdo às 4 páginas que hoje só têm `[PENDENTE]`, sem inventar nada sobre a Rô. O que não estiver confirmado aparece com o marcador visível `<span class="pendente">[PENDENTE: ...]</span>` (classe já existe em `css/componentes.css`).
-
-### Arquivos
-
-| Arquivo | O que fazer |
-|---|---|
-| `js/dados/encomendas.js` (novo) | Dados de Encomendas e Datas especiais (estrutura abaixo). Nada de preço |
-| `js/telas/encomendas.js` (novo) | Monta a tela a partir dos dados, tudo passando por `escapar()` de `js/modules/templates.js` |
-| `js/telas/datas-especiais.js` (novo) | Idem para Datas especiais |
-| `js/modules/whatsapp.js` | Aceitar `data-mensagem="..."` (mensagem inteira personalizada), mantendo `data-produto` e o padrão como estão |
-| `js/main.js` | Ligar `encomendas` e `datas-especiais` às novas telas (as outras duas continuam com `aoAbrirView`) |
-| `html/encomendas.html`, `html/datas-especiais.html`, `html/sobre.html`, `html/contato.html` | Estrutura das telas (um `h1` por tela, mantendo o cabeçalho `pagina__cabecalho` atual) |
-| `css/componentes.css` | Componentes novos só com tokens de `css/variaveis.css`: `.passos`, `.regras`, `.faq`, `.contato-cartoes` (nomes sugeridos). Nada de cor solta |
-| `README.md` | Atualizar a tabela de rotas |
-| `docs/capturas/1c/` | Capturas em 390px e 1280px das 4 telas |
-
-### Conteúdo de cada tela
-
-**1. Encomendas (`#/encomendas`)**
-- **Como pedir, em 4 passos** (lista numerada `ol.passos`): 1) Escolha no cardápio (link `#/cardapio`); 2) Chame a Rô no WhatsApp; 3) Combine os detalhes e pague o sinal; 4) Retire ou receba a sua encomenda.
-- **Regras do pedido**: vieram do modelo de orçamento do app antigo e **ainda não foram confirmadas pela Rô**. Mostrar o texto e, ao lado de cada uma, `[PENDENTE: confirmar com a Rô]`. Guardar no dado com `confirmado: false`, para depois só virar `true`:
-  - Sinal de 50% do valor para confirmar a encomenda.
-  - Antecedência mínima de 3 dias.
-  - Retirada com data e hora marcadas.
-  - Fazemos entregas (taxa sob consulta).
-  - Pagamento: PIX, dinheiro e cartões.
-  - Topo, glitter e embalagens são cobrados à parte.
-- **Sabores** (também `confirmado: false`): massas branca ou chocolate; cobertura de chantininho; recheios tradicionais: chocolate, prestígio, leite Ninho, 4 leites; recheios premium (com acréscimo): Ninho com morango, maracujá, Ninho com Nutella, Ninho com geleia de morango.
-- **Aviso do Bentô Cake e bolos pequenos**: usar o texto que já existe em `avisoRetirada` de `js/dados/cardapio.js` (importar, não copiar).
-- **Perguntas frequentes** com `<details><summary>`: "Com quanto tempo de antecedência devo pedir?", "Vocês entregam?", "Quais as formas de pagamento?", "Posso pedir um bolo com personagem?". Resposta = a regra correspondente com `[PENDENTE: confirmar com a Rô]`; na do personagem: "Sim, a decoração é combinada com a Rô pelo WhatsApp." + `[PENDENTE: confirmar com a Rô]`.
-- Botão final "Faça sua encomenda" (`data-whatsapp`).
-- **Não colocar preços**, nem a tabela de tamanhos do app antigo: preço no site só quando a Rô decidir (`mostrarPrecos` em `cardapio.js`).
-
-**2. Datas especiais (`#/datas-especiais`)**
-- Faixa da **Campanha vintage** com 2 das fotos reais que já existem (`imagens/produtos/bolo-vintage-*`, com `<picture>` WebP 480/800 + JPG, `alt` descritivo, `loading="lazy"`) e botão "Quero um bolo vintage" com `data-mensagem="Olá, Rô! Vim pelo site e quero um bolo vintage."`.
-- Cartões para **Dia das Mães, Dia dos Namorados, Páscoa e Natal**: título, uma linha "Fale com a Rô com antecedência para garantir a sua encomenda." e botão com `data-mensagem="Olá, Rô! Vim pelo site e quero uma encomenda para <data>."`. Sem foto: usar o mesmo espaço `[PENDENTE: foto real]` que o cardápio usa (ver `fotoProduto` em `templates.js`). **Nunca** imagem gerada no lugar de produto.
-- Não inventar o que a Rô faz em cada data (produtos, kits, preços): só `[PENDENTE: produtos da época]` em cada cartão.
-
-**3. Sobre a Rô (`#/sobre`)** – só o confirmado:
-- Chef Rosangela Vieira, formada em Gastronomia, confeitaria Delícias da Rô em Manaus – AM, "Sabores que encantam", Instagram @chefrosangelavieira (link de `js/dados/site.js`).
-- `[PENDENTE: história contada pela Rô]`, `[PENDENTE: tempo de confeitaria]`, `[PENDENTE: foto da Rô, se ela quiser]`.
-- **Não** colocar a mascote Chef Rô ainda (depende do ok da Rô e entra na etapa 1D).
-
-**4. Contato (`#/contato`)**
-- Cartões: **WhatsApp** (número visível `(92) 98168-1827` + botão `data-whatsapp`) e **Instagram** (@chefrosangelavieira, abre em nova aba). Dados vêm de `js/dados/site.js`, não repetir números no HTML se der para preencher pelo JS; se ficar no HTML, que seja igual ao `site.js`.
-- "Atendimento por encomenda em Manaus – AM."
-- Horário: o de `site.js` com `[PENDENTE: confirmar com a Rô]`.
-- `[PENDENTE: região de entrega]` e `[PENDENTE: link do Perfil da Empresa no Google]`.
-- **Sem formulário, sem endereço, sem mapa.** Nenhuma coleta de dado pessoal.
-
-### Critério de pronto
-- As 4 telas com o conteúdo acima; o que não é confirmado aparece como `[PENDENTE: ...]`.
-- Um `h1` por tela; foco visível; alvos de toque ≥ 44px; `<details>` acessível pelo teclado.
-- Todo texto de dados passa por `escapar()`.
-- Sem preço, sem endereço, sem formulário, sem imagem gerada por IA.
-- Botões do WhatsApp com a mensagem certa (`data-mensagem`, `data-produto` e padrão funcionando).
-
-### Testes a rodar
-- `python -m http.server 8080` e abrir as 6 rotas em **390px e 1280px**: um `h1`, sem rolagem horizontal, 0 erros no console, 0 imagens quebradas.
-- Conferir 3 links do WhatsApp (um padrão, um `data-produto` no cardápio, um `data-mensagem` em Datas especiais): `wa.me/5592981681827?text=` com o texto certo.
-- `node ferramentas/contraste.mjs` (tudo ≥ 4,5:1; se criar um par novo de cor de texto, acrescentar no script).
-- Capturas em `docs/capturas/1c/`.
-
-### Como trabalhar
-- Escritor: CSS dos componentes e as 4 views. Principal: dados, telas JS, `whatsapp.js` e integração. Revisor: diff completo antes do PR.
-- Commits pequenos em português (Conventional Commits), última linha `Feito-por: Codex`.
-- Abrir PR para `main` com: o que fez, como testar, lista de `[PENDENTE]` novos. **Não** registrar em `docs/registro-de-publicacoes.md` (só depois do merge).
-- Ao terminar ou se o limite acabar: atualizar esta passagem (sessão nova no topo de "Sessões").
-
-### Fora do escopo da 1C
-- Mascote Chef Rô, ícones 3D, Open Graph, JSON-LD, contador (tudo isso é 1D).
-- Pedir ou gerar imagem: se faltar imagem, anotar em "Dúvidas para o Franklin"; o Claude transforma em pedido para o ChatGPT (ver "Imagens" no `AGENTS.md`).
+### Observações da 1D
+- `robots.txt` só é lido na raiz do domínio: no GitHub Pages (subpasta) ele não vale. Passa a valer com o domínio próprio; aí revisar `Disallow: /app/` e o endereço do sitemap.
+- Ao trocar para o domínio próprio: atualizar canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD e `sitemap.xml` no `index.html`.
+- Horário (`openingHours`) fica fora do JSON-LD até a Rô confirmar e até bater com o Perfil da Empresa no Google.
+- O contador conta a rota (`/cardapio`, não `/cardapio/kits`) depois que a tela abre, uma vez por troca de rota; a origem vai como `referrer: origem:<valor>` só na primeira contagem; a query (`?origem=`) é limpa da barra de endereço.
 
 ## Dúvidas para o Franklin
 
@@ -105,6 +29,14 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - Domínio, contador de visitas e link "Área da Rô": como antes.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-22 23h – Claude Code (computador) – Etapa 1D com três motores
+
+- Fez: branch `feat/1d-ligacoes-e-numeros`. Escritores: Gemini 3.8 Flash Low (`robots.txt`, `sitemap.xml`, ícone), Gemini 3.8 Flash Medium (Open Graph, JSON-LD e correção do contador), GPT-5.6 Luna no Codex (contador e seção de números). Claude montou a imagem de prévia com o logo original e fotos reais (Pillow, sem IA).
+- Revisão: Gemini 4 Argon High e GPT-6.1 Sol em paralelo, só leitura. Acharam contagem dupla nas subseções, título da tela anterior e a query inteira indo para o GoatCounter; corrigido com o evento `rota-renderizada` no roteador e a limpeza da query. Revisão final do Claude.
+- Testou: Chromium em 390px e 1280px, 6 rotas com 1 `h1` e sem rolagem lateral; todas as imagens com 200; JSON-LD com `JSON.parse`; contraste aprovado. Contador simulado sem rede: `?origem=Instagram&email=...` vira `origem:instagram` só na primeira contagem, a query some da URL, `#/cardapio` → `#/cardapio/kits` → `#/cardapio/bento-cake` conta uma vez, `#app` não conta, código vazio ou inválido não carrega nada.
+- Ficou faltando: código do GoatCounter, números reais da Rô, validar a prévia e o JSON-LD nas ferramentas do Facebook e do Google depois do merge, teste num celular de verdade.
+- Ambiente: o plugin de telemetria do Google Cloud no Gemini (`~/.gemini/config/plugins/googlecloudtools.datacloud_telemetry/hooks.json`) travava o Antigravity; foi desligado com o ok do Franklin (backup `hooks.json.bak-claude`).
 
 ### 2026-10-22 16h10 – Codex (Work) – Envio e abertura do PR #3
 

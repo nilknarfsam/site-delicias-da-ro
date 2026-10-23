@@ -21,6 +21,18 @@ Onde o `CLAUDE.md` disser "Claude Code", leia "o agente que estiver trabalhando"
 - Regras de segurança do Firestore, modelo de dados, fórmulas de precificação e decisões de produto **nunca** vão para o escritor.
 - Etapa pequena: o principal faz sozinho.
 
+### Escala de motores (Claude Code, desde 22/10/2026)
+
+Quando o Claude Code coordena, ele delega pelos plugins `antigravity-mcp` e `codex-mcp` (skill `fluxo-tres-motores`):
+
+| Papel | Modelos |
+|---|---|
+| Escrever código e organizar arquivos | Gemini 3.8 Flash Low (tarefas mecânicas), Gemini 3.8 Flash Medium, GPT-5.6 Luna (Codex) |
+| Revisar o diff (só leitura) | Gemini 4 Argon High e GPT-6.1 Sol, em paralelo |
+| Revisão final, testes e PR | Claude |
+
+Nunca dois escritores ao mesmo tempo na mesma branch. Os commits dizem qual modelo escreveu e quem revisou.
+
 ## Passagem de bastão
 
 - Branch `feat/<etapa>-<assunto>`, commits pequenos em português; última linha `Feito-por: Codex` ou `Feito-por: Claude`.
