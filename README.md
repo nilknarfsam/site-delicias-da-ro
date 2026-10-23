@@ -44,9 +44,7 @@ docs/               plano, arquitetura, design system, roteiro, passagem de bast
 
 ## Design system
 
-Tokens só em `css/variaveis.css`: cores da marca (manual v2), escala tipográfica 1,25, espaços em múltiplos de 8px. Títulos em serifada (Fraunces ou Cormorant Garamond, em escolha), texto em Nunito, frases curtas em Dancing Script. Detalhes em [`docs/03-design-system.md`](docs/03-design-system.md).
-
-Para comparar a segunda opção de fonte no site inteiro: `index.html?fonte=cormorant`.
+Tokens só em `css/variaveis.css`: cores da marca (manual v2), escala tipográfica 1,25, espaços em múltiplos de 8px. Títulos em serifada (Fraunces), texto em Nunito, frases curtas em Dancing Script. Detalhes em [`docs/03-design-system.md`](docs/03-design-system.md).
 
 ## Acessibilidade
 

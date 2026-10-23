@@ -48,7 +48,7 @@ export function cartaoProduto(item, { carregarTarde = true, comAviso = false, av
 
 export function telaErro(titulo, mensagem) {
   return `
-    <section class="container erro-tela">
+    <section class="container erro-tela" role="alert">
       <h1>${escapar(titulo)}</h1>
       <p>${escapar(mensagem)}</p>
       <p><button type="button" class="botao botao--contorno" data-acao="recarregar-view">Tentar de novo</button></p>

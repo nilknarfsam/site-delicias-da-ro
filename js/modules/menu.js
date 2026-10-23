@@ -10,6 +10,10 @@ export function iniciarMenu() {
     alternar(!aberto);
   });
 
+  lista.addEventListener('click', (e) => {
+    if (e.target.closest('.menu__link')) alternar(false);
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && botao.getAttribute('aria-expanded') === 'true') {
       alternar(false);

@@ -49,6 +49,7 @@
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  touch-action: manipulation;
 }
 .menu__icone,
 .menu__icone::before,
@@ -80,6 +81,9 @@
   background: var(--cor-fundo);
   border-bottom: 1px solid var(--cor-borda);
   box-shadow: var(--sombra);
+  max-height: calc(100dvh - var(--altura-cabecalho));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .menu__lista[data-aberto="false"] { display: none; }
 
@@ -92,6 +96,7 @@
   color: var(--cor-texto);
   font-weight: 700;
   text-decoration: none;
+  touch-action: manipulation;
 }
 .menu__link:hover { background: var(--cor-fundo-2); color: var(--cor-texto-2); }
 .menu__link[aria-current="page"] { color: var(--cor-texto-2); background: var(--cor-fundo-2); }
@@ -107,6 +112,8 @@
     background: none;
     border: 0;
     box-shadow: none;
+    max-height: none;
+    overflow: visible;
   }
   .menu__link { min-height: var(--toque-minimo); padding: 0 var(--espaco-3); }
   .menu__link[aria-current="page"] {
@@ -131,6 +138,7 @@
   text-decoration: none;
   cursor: pointer;
   transition: background var(--transicao), color var(--transicao), transform var(--transicao);
+  touch-action: manipulation;
 }
 .botao:active { transform: translateY(1px); }
 .botao--principal { background: var(--cor-acao); color: var(--cor-branco); }
@@ -142,8 +150,8 @@
 /* ---------- Botão flutuante do WhatsApp ---------- */
 .whats-flutuante {
   position: fixed;
-  right: var(--espaco-3);
-  bottom: var(--espaco-3);
+  right: max(var(--espaco-3), env(safe-area-inset-right));
+  bottom: max(var(--espaco-3), env(safe-area-inset-bottom));
   z-index: 40;
   display: inline-flex;
   align-items: center;
@@ -157,13 +165,14 @@
   box-shadow: var(--sombra-forte);
   text-decoration: none;
   font-weight: 800;
+  touch-action: manipulation;
 }
 .whats-flutuante:hover { background: var(--cor-acao-escura); color: var(--cor-branco); }
 .whats-flutuante svg { width: 26px; height: 26px; flex: none; }
 .whats-flutuante__texto { display: none; }
 
 @media (min-width: 768px) {
-  .whats-flutuante { width: auto; padding: 0 var(--espaco-4); right: var(--espaco-5); bottom: var(--espaco-5); }
+  .whats-flutuante { width: auto; padding: 0 var(--espaco-4); right: max(var(--espaco-5), env(safe-area-inset-right)); bottom: max(var(--espaco-5), env(safe-area-inset-bottom)); }
   .whats-flutuante__texto { display: inline; }
 }
 
@@ -301,13 +310,14 @@
   color: var(--cor-texto-2);
   font-weight: 700;
   text-decoration: none;
+  touch-action: manipulation;
 }
 .chip:hover { border-color: var(--cor-texto-2); background: var(--cor-fundo-2); color: var(--cor-texto-2); }
 
 /* ---------- Grade de cartões ---------- */
 .grade-cartoes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
   gap: var(--espaco-4);
 }
 
@@ -345,7 +355,7 @@
 .cartao__preco { margin: auto 0 var(--espaco-2); font-weight: 800; color: var(--cor-texto-2); padding-top: var(--espaco-2); }
 
 /* ---------- Categoria do cardápio ---------- */
-.categoria { padding-block: var(--espaco-5); border-top: 1px solid var(--cor-borda); }
+.categoria { padding-block: var(--espaco-5); border-top: 1px solid var(--cor-borda); scroll-margin-top: calc(var(--altura-cabecalho) + var(--espaco-3)); }
 .categoria:first-child { border-top: 0; padding-top: 0; }
 .categoria__cabecalho { margin-bottom: var(--espaco-4); }
 .categoria__descricao { margin: 0; font-size: var(--texto-m); }
@@ -443,5 +453,6 @@
   font-size: var(--texto-h2);
   color: var(--cor-texto-2);
   line-height: var(--altura-linha-titulo);
+  font-variant-numeric: tabular-nums;
 }
 .numeros__rotulo { color: var(--cor-texto); }

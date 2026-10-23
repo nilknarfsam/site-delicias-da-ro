@@ -25,7 +25,7 @@ Medir o contraste de cada par texto/fundo (≥ 4,5:1) e ajustar o tom do chocola
 
 | Função | Fonte |
 |---|---|
-| Títulos | Serifada elegante (sugestão: **Fraunces** ou **Cormorant Garamond**; o Claude Code mostra as duas e o Franklin escolhe) |
+| Títulos | **Fraunces** (escolhida pelo Franklin em 23/10/2026) |
 | Texto e interface | **Nunito** (600 a 800) |
 | Frase afetiva curta | **Dancing Script**, só em frases curtas e nunca em texto corrido |
 
