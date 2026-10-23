@@ -4,21 +4,22 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- Fase/etapa: **1D implementada, testada e em revisão** na branch `feat/1d-ligacoes-e-numeros`. 1A, 1B e 1C estão no `main` (PRs #1, #2 e #3) e publicadas em https://nilknarfsam.github.io/site-delicias-da-ro/.
-- O que a 1D entrega: `robots.txt`, `sitemap.xml`, ícone 192px, canonical, Open Graph e Twitter Card com a prévia `imagens/og/og-delicias-da-ro.jpg` (logo original + 2 fotos reais, sem IA), JSON-LD `Bakery` (sem horário, rua ou preço), contador GoatCounter em `js/modules/contador.js` (desligado até haver código) e a seção "A Rô em números" (escondida até haver números reais).
+- Fase/etapa: **1E (publicação) em revisão** na branch `feat/1e-publicacao`. 1A a 1D estão no `main` (PRs #1 a #4) e no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
+- A 1E traz: prévia segura para o recorte quadrado do WhatsApp, links marcados com o endereço real (`conteudo/dados-da-confeitaria.md`), registro da 1C e da 1D, correções das auditorias de interface e SEO, fonte de título fixada na **Fraunces** e título "Bolos e doces em Manaus".
 
-## Próxima tarefa (exata) – Aprovar a 1D e preparar a 1E
+## Próxima tarefa (exata)
 
-1. **Franklin:** conferir o PR da 1D e aprovar. Depois do merge, colar o link do site no WhatsApp para ver a prévia.
-2. **Franklin:** criar a conta no GoatCounter e passar o código; colocar em `site.contador.codigo` (`js/dados/site.js`) num PR pequeno.
-3. Depois do merge: registrar a 1D em `docs/registro-de-publicacoes.md` e validar a prévia no depurador do Facebook (developers.facebook.com/tools/debug) e o JSON-LD no Teste de resultados avançados do Google (search.google.com/test/rich-results).
-4. Planejar a **1E** (publicação e links marcados para a bio e o Google).
+1. **Franklin:** aprovar o PR da 1E. Depois do merge, colocar o link `?origem=instagram` na bio do Instagram e o `?origem=google` no Perfil da Empresa no Google.
+2. **Etapa 2B** (motor de cálculo do Precifica, `app/js/dominio/` com `node --test`, exemplo do `docs/06` seção 4). Escrita pelo GPT-6.1 Sol (regra do AGENTS.md: fórmulas não vão para o escritor pequeno), revisão Gemini 4 Argon High + Claude.
+3. Por último: código do GoatCounter em `site.contador.codigo`.
 
-### Observações da 1D
-- `robots.txt` só é lido na raiz do domínio: no GitHub Pages (subpasta) ele não vale. Passa a valer com o domínio próprio; aí revisar `Disallow: /app/` e o endereço do sitemap.
-- Ao trocar para o domínio próprio: atualizar canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD e `sitemap.xml` no `index.html`.
-- Horário (`openingHours`) fica fora do JSON-LD até a Rô confirmar e até bater com o Perfil da Empresa no Google.
-- O contador conta a rota (`/cardapio`, não `/cardapio/kits`) depois que a tela abre, uma vez por troca de rota; a origem vai como `referrer: origem:<valor>` só na primeira contagem; a query (`?origem=`) é limpa da barra de endereço.
+### Fica para a reunião do Franklin com a Rô
+- Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
+- Números reais para a seção "A Rô em números".
+
+### Para a troca de domínio (deliciasdaro.com.br)
+- Atualizar canonical, `og:url`, `og:image`, `twitter:image`, JSON-LD e `sitemap.xml`; `robots.txt` passa a valer na raiz.
+- Avaliar conteúdo inicial já no HTML de `#app` (sugestão da auditoria de SEO) para o Google ler sem depender do JavaScript.
 
 ## Dúvidas para o Franklin
 
@@ -29,6 +30,18 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - Domínio, contador de visitas e link "Área da Rô": como antes.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-23 – Claude Code (computador) – Etapa 1E com três motores
+
+- Fez: prévia de compartilhamento refeita (Claude, Pillow, logo original + fotos reais). Links marcados e registro de publicações (Gemini 3.8 Flash Low). Auditorias em paralelo, só leitura: Gemini 4 Argon High com as Web Interface Guidelines da Vercel e GPT-6.1 Sol com o checklist `seo-audit`/`schema` de coreyhaines31/marketingskills (achados no PDF "50 Claude Skills" do Drive). Correções de CSS (Gemini 3.8 Flash Low) e de HTML/JS (GPT-5.6 Luna).
+- Testou: W3C (validator.w3.org/nu) com 0 erros nas 6 telas renderizadas e no `design-system.html`; 390px: 1 `h1` por tela, sem rolagem lateral, nenhum alvo de toque < 44px; menu fecha ao tocar na tela atual; tocar de novo em `#/cardapio/kits` rola e foca "Kits" abaixo do cabeçalho; "Pular para o conteúdo" por Enter foca `#app` sem trocar a rota; foco visível no rodapé; rota inválida volta ao início; só Fraunces, Nunito e Dancing Script carregadas.
+- Não fez (decisão): manter o horário do rodapé (veio do Franklin; confirmar com a Rô); conteúdo pré-montado no HTML fica para a troca de domínio.
+
+### 2026-10-23 – Codex – Ajustes da fonte, navegação e metadados
+
+- Fez: fixou Fraunces como fonte de títulos; corrigiu o fechamento do menu ao tocar no link atual; adicionou foco/rolagem para links no mesmo hash e para "Pular para o conteúdo"; marcou tela de erro como alerta; priorizou o carregamento das fotos da campanha vintage; trocou preenchimentos de contato para `textContent`; atualizou título, viewport, fallback sem JavaScript e documentação.
+- Testou: `node --check` em todos os cinco JavaScript alterados; `git diff --check`; busca por `cormorant` sem resultados fora de `docs/capturas/` e desta passagem; `design-system.html` com um único `h1`; títulos OG/Twitter preservados.
+- Ficou faltando: revisão do diff pelo agente revisor, commit e PR. O `git pull --ff-only` não foi possível neste ambiente por permissão em `.git/FETCH_HEAD`.
 
 ### 2026-10-22 23h – Claude Code (computador) – Etapa 1D com três motores
 
