@@ -32,9 +32,12 @@ Bolos decorados · Bolos caseiros · Bentô Cake · Doces e brigadeiros · Cupca
 
 ## Links marcados (para medir a origem das visitas)
 
-- Bio do Instagram: `<endereço do site>/?origem=instagram`
-- Perfil da Empresa no Google: `<endereço do site>/?origem=google`
-- Status e mensagens do WhatsApp: `<endereço do site>/?origem=whatsapp`
+- Bio do Instagram: `https://nilknarfsam.github.io/site-delicias-da-ro/?origem=instagram`
+- Perfil da Empresa no Google: `https://nilknarfsam.github.io/site-delicias-da-ro/?origem=google`
+- Status e mensagens do WhatsApp: `https://nilknarfsam.github.io/site-delicias-da-ro/?origem=whatsapp`
+
+O contador lê o `?origem=` e depois limpa o endereço; funciona quando o código do GoatCounter estiver em `js/dados/site.js`.
+Quando o domínio deliciasdaro.com.br estiver no ar, trocar o começo dos links (o `?origem=` continua igual).
 
 ## Arquivos de marca
 
