@@ -421,3 +421,27 @@
   .campanha-vintage__texto { flex: 1; }
   .campanha-vintage__fotos { flex: 1; }
 }
+
+/* ---------- Números da página inicial ---------- */
+.numeros__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco-5);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.numeros__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 8rem;
+}
+.numeros__valor {
+  font-family: var(--fonte-titulo);
+  font-size: var(--texto-h2);
+  color: var(--cor-texto-2);
+  line-height: var(--altura-linha-titulo);
+}
+.numeros__rotulo { color: var(--cor-texto); }

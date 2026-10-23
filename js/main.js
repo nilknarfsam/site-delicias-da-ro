@@ -8,6 +8,7 @@ import { iniciarEncomendas } from './telas/encomendas.js';
 import { iniciarDatasEspeciais } from './telas/datas-especiais.js';
 import { site } from './dados/site.js';
 import { escapar } from './modules/templates.js';
+import { iniciarContador } from './modules/contador.js';
 
 // Comparação das fontes de título enquanto o Franklin escolhe: ?fonte=cormorant
 const fonte = new URLSearchParams(location.search).get('fonte');
@@ -42,3 +43,4 @@ iniciarMenu();
 prepararLinksWhatsApp(document);
 document.getElementById('ano').textContent = String(new Date().getFullYear());
 iniciarRoteador(rotas);
+iniciarContador();
