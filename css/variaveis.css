@@ -61,8 +61,3 @@
   --altura-cabecalho: 72px;
   --toque-minimo: 44px;
 }
-
-/* Opção B de fonte de título, para comparar (?fonte=cormorant) */
-:root[data-fonte="cormorant"] {
-  --fonte-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-}

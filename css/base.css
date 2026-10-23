@@ -26,6 +26,7 @@ h1, h2, h3 {
   line-height: var(--altura-linha-titulo);
   font-weight: 600;
   margin: 0 0 var(--espaco-3);
+  text-wrap: balance;
 }
 h1 { font-size: var(--texto-h1); }
 h2 { font-size: var(--texto-h2); }
@@ -43,6 +44,7 @@ img { max-width: 100%; height: auto; display: block; }
   outline-offset: 3px;
   border-radius: 4px;
 }
+.rodape :focus-visible { outline-color: var(--cor-rodape-texto); }
 
 [tabindex="-1"]:focus { outline: none; }
 
