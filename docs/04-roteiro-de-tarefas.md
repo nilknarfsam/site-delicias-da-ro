@@ -16,8 +16,8 @@ Ordem: primeiro o site público, depois a área da Rô, depois as novidades. Uma
 |---|---|---|
 | **1A** Estrutura e design system ✅ (PR #1, publicado em 22/10) | Casca SPA, roteador, tokens, tipografia (mostrar as duas serifadas), cabeçalho, rodapé, botão flutuante do WhatsApp, 404 | Nada |
 | **1B** Início e Cardápio ✅ (PR #2 aberto em 22/10) | Capa de impacto, destaques, prévia do cardápio, Cardápio por categoria com dados em `js/dados/cardapio.js` | Fotos reais por item, lista final do cardápio, preços ou "consulte" |
-| **1C** Encomendas, Datas, Sobre, Contato | As 4 páginas | Antecedência, sinal, pagamento, retirada/entrega, região, história e formação, foto dela (se quiser) |
-| **1D** Ligações e números | JSON-LD `Bakery`, Open Graph (prévia bonita no WhatsApp), favicon "R", contador de visitas com `?origem=`, números da home, `robots.txt` | Números reais para os contadores (ex.: anos de confeitaria) |
+| **1C** Encomendas, Datas, Sobre, Contato ✅ (PR #3, mesclado em 22/10) | As 4 páginas | Antecedência, sinal, pagamento, retirada/entrega, região, história e formação, foto dela (se quiser) |
+| **1D** Ligações e números (PR aberto em 22/10) | JSON-LD `Bakery`, Open Graph (prévia bonita no WhatsApp), favicon "R", contador de visitas com `?origem=`, números da home, `robots.txt` | Números reais para os contadores (ex.: anos de confeitaria) |
 | **1E** Publicação | Testes em 390px e 1280px, contraste, links; publicar; entregar ao Franklin os links marcados para a bio e o Google | Aprovar o site no celular |
 
 Depois da 1E, o Franklin coloca o link na bio do Instagram e no campo "Site" do Perfil da Empresa no Google.
