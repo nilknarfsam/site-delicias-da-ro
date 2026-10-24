@@ -517,6 +517,335 @@ img {
   }
 }
 
+/* ---------- Campos de formulário ---------- */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  min-width: 0;
+}
+
+.campo__rotulo {
+  font-weight: 700;
+  color: var(--cor-texto-2);
+  font-size: var(--texto-base);
+}
+
+.campo__controle {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--toque-minimo);
+  padding: var(--espaco-2) var(--espaco-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  background: var(--cor-branco);
+  color: var(--cor-texto);
+  font: inherit;
+  font-size: var(--texto-base);
+}
+
+.campo__controle[aria-invalid="true"] {
+  border-color: var(--cor-acao);
+  background: var(--cor-fundo);
+}
+
+.campo__erro {
+  margin: 0;
+  color: var(--cor-acao-escura);
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+}
+
+.campo__aviso {
+  margin: var(--espaco-2) 0 0;
+  padding: var(--espaco-2) var(--espaco-3);
+  border-left: 4px solid var(--cor-caramelo);
+  border-radius: var(--raio-pequeno);
+  background: var(--cor-creme);
+  color: var(--cor-texto);
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+}
+
+/* ---------- Dispensa ---------- */
+.dispensa {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding-bottom: var(--espaco-6);
+}
+
+.dispensa__controles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: var(--espaco-3);
+  box-shadow: var(--sombra);
+}
+
+.dispensa__busca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dispensa__acao-principal {
+  display: flex;
+}
+
+.dispensa__acao-principal .botao {
+  width: 100%;
+}
+
+.dispensa__aviso-status {
+  margin: 0;
+  padding: var(--espaco-2) var(--espaco-3);
+  border-radius: var(--raio-pequeno);
+  border: 1px solid var(--cor-borda);
+  background: var(--cor-fundo-2);
+  color: var(--cor-texto-2);
+  font-weight: 700;
+}
+
+.dispensa__resumo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dispensa__contador {
+  margin: 0;
+  color: var(--cor-texto-2);
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+}
+
+.dispensa__vazio {
+  margin: 0;
+  color: var(--cor-texto);
+  font-weight: 600;
+  text-align: center;
+}
+
+.dispensa__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+}
+
+.dispensa-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: var(--espaco-3) var(--espaco-4);
+  background: var(--cor-branco);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.dispensa-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-1);
+  min-width: 0;
+}
+
+.dispensa-item__cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+}
+
+.dispensa-item__nome {
+  color: var(--cor-texto-2);
+  font-size: var(--texto-m);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.dispensa-item__selo {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--espaco-1) var(--espaco-2);
+  border-radius: var(--raio-pilula);
+  background: var(--cor-creme);
+  color: var(--cor-texto-2);
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+}
+
+.dispensa-item__detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espaco-2);
+  color: var(--cor-texto);
+}
+
+.dispensa-item__embalagem {
+  font-weight: 600;
+}
+
+.dispensa-item__separador {
+  color: var(--cor-texto-2);
+  font-weight: 700;
+}
+
+.dispensa-item__referencia {
+  color: var(--cor-texto-2);
+  font-weight: 800;
+}
+
+.dispensa-item__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+}
+
+/* ---------- Diálogos (formulário e confirmação) ---------- */
+.dialogo {
+  width: min(calc(100vw - (var(--gutter) * 2)), 32rem);
+  max-width: 32rem;
+  max-height: calc(100vh - (var(--espaco-4) * 2));
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  background: var(--cor-branco);
+  color: var(--cor-texto);
+  box-shadow: var(--sombra-forte);
+  overflow-y: auto;
+}
+
+.dialogo::backdrop {
+  background: var(--cor-rodape);
+  opacity: 0.45;
+}
+
+.dialogo__corpo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-3);
+  padding: var(--espaco-4);
+}
+
+.dialogo__titulo {
+  margin: 0;
+  font-size: var(--texto-g);
+  color: var(--cor-texto-2);
+}
+
+.dialogo__texto {
+  margin: 0;
+  color: var(--cor-texto);
+}
+
+.dialogo__grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-3);
+}
+
+.dialogo__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-2);
+}
+
+.dialogo__acoes .botao {
+  flex: 1 1 auto;
+}
+
+/* ---------- Histórico de preços ---------- */
+.historico-precos {
+  margin-top: var(--espaco-2);
+  padding-top: var(--espaco-3);
+  border-top: 1px solid var(--cor-borda);
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.historico-precos__titulo {
+  margin: 0;
+  font-size: var(--texto-m);
+  color: var(--cor-texto-2);
+}
+
+.historico-precos__vazio {
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: var(--texto-pequeno);
+}
+
+.historico-precos__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+}
+
+.historico-precos__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espaco-1) var(--espaco-2);
+  padding: var(--espaco-2) var(--espaco-3);
+  border-radius: var(--raio-pequeno);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  font-size: var(--texto-pequeno);
+}
+
+.historico-precos__data {
+  color: var(--cor-texto-2);
+  font-weight: 700;
+}
+
+.historico-precos__mudanca {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+/* ---------- Aviso de desfazer (acima da barra inferior no celular) ---------- */
+.aviso-desfazer {
+  position: fixed;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: calc(var(--altura-cabecalho) + var(--espaco-2) + env(safe-area-inset-bottom));
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espaco-3);
+  padding: var(--espaco-2) var(--espaco-3);
+  background: var(--cor-branco);
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-texto-2);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra-forte);
+}
+
+.aviso-desfazer__texto {
+  font-weight: 700;
+  color: var(--cor-texto-2);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 /* ---------- Telas maiores ---------- */
 @media (max-width: 575px) {
   .cabecalho__barra {
@@ -539,6 +868,29 @@ img {
 @media (min-width: 576px) {
   .cabecalho__atelie {
     max-width: 18rem;
+  }
+
+  .dispensa__controles {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .dispensa__acao-principal .botao {
+    width: auto;
+  }
+
+  .dispensa-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dispensa-item__acoes {
+    flex: none;
+  }
+
+  .dialogo__grade {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -592,6 +944,13 @@ img {
 
   .conteudo {
     padding: 0 0 var(--espaco-6);
+  }
+
+  .aviso-desfazer {
+    left: auto;
+    right: var(--espaco-5);
+    bottom: var(--espaco-5);
+    max-width: 28rem;
   }
 }
 

@@ -11,6 +11,15 @@ let estadoGetter = () => '';
 let renderizadorRota = null;
 let containerAlvo = null;
 let ouvinteAtivo = false;
+let cancelarRotaAtual = null;
+
+function encerrarRotaAtual() {
+  if (typeof cancelarRotaAtual === 'function') {
+    const cancelar = cancelarRotaAtual;
+    cancelarRotaAtual = null;
+    cancelar();
+  }
+}
 
 function obterNomeRota() {
   const hash = window.location.hash;
@@ -47,8 +56,10 @@ function processarRota() {
     history.replaceState(null, '', '#/inicio');
   }
 
+  encerrarRotaAtual();
+
   if (typeof renderizadorRota === 'function') {
-    renderizadorRota(nome);
+    cancelarRotaAtual = renderizadorRota(nome) || null;
   }
 
   marcarItemAtivo(nome);
@@ -93,5 +104,6 @@ export function iniciarRoteador({ container, obterEstado, aoNavegar }) {
 }
 
 export function limparMarcacaoRoteador() {
+  encerrarRotaAtual();
   marcarItemAtivo('');
 }
