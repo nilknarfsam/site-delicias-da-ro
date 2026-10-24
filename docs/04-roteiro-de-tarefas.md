@@ -7,8 +7,8 @@ Ordem: primeiro o site público, depois a área da Rô, depois as novidades. Uma
 - [x] Criar o repositório público `nilknarfsam/site-delicias-da-ro` (22/10/2026).
 - [x] Ligar o GitHub Pages (Settings → Pages → Deploy from a branch → `main` / root) (22/10/2026).
 - [ ] Juntar com a Rô os itens de `docs/07-pendencias-da-ro.md` (dá para começar o site sem tudo; o que faltar fica marcado como pendente).
-- [ ] Antes da Fase 2: criar o projeto `delicias-da-ro` no console do Firebase (plano Spark), ligar Authentication com Google, criar o Firestore (região `southamerica-east1`, São Paulo), registrar o app web e guardar a configuração.
-- [ ] Antes da Fase 2: conseguir o e-mail Google da Rô.
+- [x] Antes da Fase 2 (24/10/2026, configurado pelo Claude): criar o projeto `delicias-da-ro` no console do Firebase (plano Spark), ligar Authentication com Google, criar o Firestore (região `southamerica-east1`, São Paulo), registrar o app web e guardar a configuração.
+- [x] Antes da Fase 2: conseguir o e-mail Google da Rô (24/10/2026).
 
 ## Fase 1 – Site público
 
@@ -26,8 +26,8 @@ Depois da 1E, o Franklin coloca o link na bio do Instagram e no campo "Site" do 
 
 | Etapa | O que entra | Precisa da Rô |
 |---|---|---|
-| **2A** Fundação | `app/` com casca, navegação, login Google, tela "acesso não liberado", ateliê, `firestore.rules` testadas, cache offline e indicador de conexão | Testar o login no celular dela |
-| **2B** Domínio de cálculo | `app/js/dominio/` portado do Flutter com testes `node --test` (exemplo de `docs/06`) **antes** de qualquer tela | Nada |
+| **2A** Fundação ✅ (PR #9, mesclado em 24/10) | `app/` com casca, navegação, login Google, tela "acesso não liberado", ateliê, `firestore.rules` testadas, cache offline e indicador de conexão | Testar o login no celular dela |
+| **2B** Domínio de cálculo ✅ (PR #7, mesclado em 24/10) | `app/js/dominio/` portado do Flutter com testes `node --test` (exemplo de `docs/06`) **antes** de qualquer tela | Nada |
 | **2C** Dispensa | Lista, busca, cadastrar, editar, excluir, cascata de preços com aviso "X receitas atualizadas", histórico de preços | Protótipo aprovado |
 | **2D** Biblioteca | Lista, busca, cadastrar, editar, excluir, importar JSON (mesmos formatos e apelidos de campo do app), limpar com confirmação, levar para a Precificação | Testar importação de um JSON do GPT |
 | **2E** Precificação | Tela única com preço sempre visível, custos adicionais e indiretos, rendimento, lucro, status, categorias, copiar resumo | Conferir 3 receitas contra o app antigo |
