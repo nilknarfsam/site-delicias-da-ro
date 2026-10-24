@@ -4,16 +4,15 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- **Fase 1 (site público)** completa no `main` (PRs #1 a #5), no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
-- **Etapa 1F (preços e regras)** em PR na branch `feat/1f-precos-e-regras`: preços "a partir de", tabela de tamanhos dos bolos personalizados, kits, regras de encomenda confirmadas e "não fazemos entregas".
-- **Etapa 2B** no `main` (PR #7): motor de cálculo em `app/js/dominio/`, 35 testes `node --test`.
-- **Firebase** configurado em 24/10 pelo Claude no Chrome: projeto `delicias-da-ro-ab7e2` (Spark), login Google ativo, domínio `nilknarfsam.github.io` autorizado, Firestore `(default)` em `southamerica-east1` no modo de produção (tudo negado), app web "Precifica Rô Web" registrado. A configuração do app web entra em `app/js/firebase.js` na 2A.
+- **Site público** no ar em https://nilknarfsam.github.io/site-delicias-da-ro/: Fase 1 (PRs #1 a #5) e **1F** (PR #8: preços "a partir de", tabela de tamanhos, kits, regras confirmadas, "não fazemos entregas").
+- **Área da Rô** em `.../app/`: **2B** (PR #7, motor de cálculo, 35 testes) e **2A** (PR #9: login Google, acesso não liberado, Início, telas "em breve", offline). `cd app && node --test`: 43 testes.
+- **Firebase** `delicias-da-ro-ab7e2` (Spark): login Google ativo; domínios autorizados `localhost` e `nilknarfsam.github.io`; Firestore `(default)` em `southamerica-east1`; ateliê `ateliers/delicias-da-ro` com o Franklin como `gestor`; **regras publicadas em 24/10** depois de 7 testes no simulador (ver PR #9). O login do Franklin no app já abre "Olá, Franklin / Delícias da Rô".
 
 ## Próxima tarefa (exata)
 
-1. **Franklin:** aprovar o PR da 1F.
-2. **Etapa 2A:** fundação da Área da Rô (casca do `app/`, login Google, tela "acesso não liberado", ateliê e membros, `firestore.rules` testadas e mostradas ao Franklin antes de publicar, offline). Regras e modelo de dados pelo GPT-6.1 Sol médio; casca pelo Gemini 3.8; revisão cruzada e Claude.
-3. Depois do primeiro login da Rô: colocar o usuário dela como membro do ateliê no Firestore.
+1. **Rô:** entrar uma vez em `.../app/` pelo celular. Depois, o Claude acha a conta dela pelo e-mail em Authentication → Usuários e acrescenta `membros.<uid> = "dona"` em `ateliers/delicias-da-ro` pelo console.
+2. **Etapa 2C (Dispensa):** lista, busca, cadastrar, editar, excluir com desfazer, cascata de preços (`app/js/dominio/cascata.js` já pronto) e histórico de preços. Mostrar o plano antes de codar.
+3. Etapa pequena: App Check com reCAPTCHA v3.
 
 ### Fica para a reunião do Franklin com a Rô
 - Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
@@ -35,6 +34,12 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - O Franklin colocará os links marcados na bio do Instagram e no Perfil da Empresa no Google.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-24 – Claude Code (computador) – Firebase, 1F e 2A
+
+- Fez: configurou o Firebase pelo Chrome (login Google, domínios, Firestore em São Paulo, app web); leitura do Instagram por um subagente Sonnet (26 posts, só leitura) virou a 1F (escrita pelo GPT-5.6 Terra); 2A com núcleo, dados e regras pelo GPT-6.1 Sol médio, casca pelo Gemini 3.8 e ajustes/revisão pelo GPT-5.6 Luna; criou o ateliê e publicou as regras com o ok do Franklin; mesclou os PRs #8 e #9 a pedido dele.
+- Testou: 1F em 390px e 1280px; 2A com login real do Franklin (Início e `#/dispensa`), 43 testes `node --test`, 7 casos no simulador de regras.
+- Ficou faltando: a Rô como `dona`; App Check; fotos reais dos itens novos do cardápio.
 
 ### 2026-10-24 – Codex – Etapa 1F: preços e regras
 
