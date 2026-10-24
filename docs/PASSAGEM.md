@@ -6,13 +6,14 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 - **Site público** no ar em https://nilknarfsam.github.io/site-delicias-da-ro/: Fase 1 (PRs #1 a #5) e **1F** (PR #8: preços "a partir de", tabela de tamanhos, kits, regras confirmadas, "não fazemos entregas").
 - **Área da Rô** em `.../app/`: **2B** (PR #7, motor de cálculo, 35 testes) e **2A** (PR #9: login Google, acesso não liberado, Início, telas "em breve", offline). `cd app && node --test`: 43 testes.
-- **Firebase** `delicias-da-ro-ab7e2` (Spark): login Google ativo; domínios autorizados `localhost` e `nilknarfsam.github.io`; Firestore `(default)` em `southamerica-east1`; ateliê `ateliers/delicias-da-ro` com o Franklin como `gestor`; **regras publicadas em 24/10** depois de 7 testes no simulador (ver PR #9). O login do Franklin no app já abre "Olá, Franklin / Delícias da Rô".
+- **Firebase** `delicias-da-ro-ab7e2` (Spark): login Google ativo; domínios autorizados `localhost` e `nilknarfsam.github.io`; Firestore `(default)` em `southamerica-east1`; ateliê `ateliers/delicias-da-ro` com o Franklin como `gestor` e a Rô como `dona` (24/10); **regras publicadas em 24/10** depois de 7 testes no simulador (ver PR #9). O login do Franklin no app já abre "Olá, Franklin / Delícias da Rô".
 
 ## Próxima tarefa (exata)
 
-1. **Rô:** entrar uma vez em `.../app/` pelo celular. Depois, o Claude acha a conta dela pelo e-mail em Authentication → Usuários e acrescenta `membros.<uid> = "dona"` em `ateliers/delicias-da-ro` pelo console.
-2. **Etapa 2C (Dispensa):** lista, busca, cadastrar, editar, excluir com desfazer, cascata de preços (`app/js/dominio/cascata.js` já pronto) e histórico de preços. Mostrar o plano antes de codar.
+1. **Franklin:** aprovar o PR da 2C (Dispensa).
+2. **Etapa 2D (Biblioteca):** lista, busca, cadastrar, editar, excluir, importar JSON (mesmos apelidos de campo do app antigo, `docs/06` seção 2), limpar com confirmação e "levar para a Precificação". Mostrar o plano antes de codar.
 3. Etapa pequena: App Check com reCAPTCHA v3.
+4. Detalhe visual: no celular, "Precificação" e "Orçamentos" ficam cortados no menu inferior (ajustar na 2E).
 
 ### Fica para a reunião do Franklin com a Rô
 - Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
@@ -34,6 +35,12 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - O Franklin colocará os links marcados na bio do Instagram e no Perfil da Empresa no Google.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-24 – Claude Code (computador) – Etapa 2C: Dispensa
+
+- Fez: Rô colocada como `dona` no ateliê pelo console. Dispensa com lista, busca sem acento, cadastro com g/kg/ml/L/unidade (kg e L guardados em g e ml), aviso de duplicado, edição com histórico de preços e cascata para as precificações, exclusão com "Desfazer" por 8 s, selo "Aguardando envio" offline. Domínio e dados pelo GPT-6.1 Sol médio; tela pelo Gemini 3.8; revisão e ajustes pelo GPT-5.6 Luna; Claude corrigiu o plural do contador.
+- Testou: 67 testes `node --test`; no Chrome com conta real (a sessão do localhost estava com a conta da Rô, o que confirmou o acesso dela como dona): cadastrar, editar preço, histórico "R$ 6,00 por 1 kg → R$ 7,50 por 1 kg", Esc com retorno de foco, excluir e desfazer com clique de mouse; 390px numa moldura (1 `h1`, sem rolagem lateral, diálogo de 358px).
+- Ficou faltando: um documento de teste em `ateliers/delicias-da-ro/historicoPrecos` (nome "TESTE Claude farinha"); o Claude não apaga dados permanentemente, fica para o Franklin apagar no console se quiser (é inofensivo).
 
 ### 2026-10-24 – Claude Code (computador) – Firebase, 1F e 2A
 

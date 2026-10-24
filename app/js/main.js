@@ -8,6 +8,7 @@ import { renderizarLogin } from './telas/login.js';
 import { renderizarSemAcesso } from './telas/sem-acesso.js';
 import { renderizarErro } from './telas/erro.js';
 import { renderizarInicio } from './telas/inicio.js';
+import { renderizarDispensa } from './telas/dispensa.js';
 import { renderizarEmBreve } from './telas/em-breve.js';
 
 const conteudo = document.getElementById('conteudo');
@@ -20,6 +21,7 @@ const avisoConexao = document.getElementById('aviso-conexao');
 let estadoAtual = 'carregando';
 let dadosAcesso = { estado: 'carregando' };
 let usuarioAtual = undefined;
+let atelieAtual = null;
 let sequenciaSessao = 0;
 
 function focarTituloTela() {
@@ -53,9 +55,16 @@ function renderizarRotaLiberada(rota) {
       nomeUsuario: usuarioAtual?.displayName || usuarioAtual?.email || '',
       nomeAtelie: dadosAcesso.nomeAtelie,
     });
-    return;
+    return null;
+  }
+  if (rota === 'dispensa') {
+    return renderizarDispensa(conteudo, {
+      atelierId: atelieAtual?.id || '',
+      uid: usuarioAtual?.uid || '',
+    });
   }
   renderizarEmBreve(conteudo, rota);
+  return null;
 }
 
 function aplicarEstado(acesso) {
@@ -116,6 +125,7 @@ botaoSair.addEventListener('click', () => {
 observarSessao(async (user) => {
   const minhaSequencia = ++sequenciaSessao;
   usuarioAtual = user;
+  atelieAtual = null;
 
   if (!user) {
     aplicarEstado(derivarAcesso({ usuario: null }));
@@ -128,6 +138,7 @@ observarSessao(async (user) => {
     await garantirUsuario(user);
     const atelie = await buscarAtelieDoUsuario(user.uid);
     if (minhaSequencia !== sequenciaSessao) return;
+    atelieAtual = atelie;
     aplicarEstado(derivarAcesso({ usuario: user, atelie, erro: null }));
   } catch (erro) {
     if (minhaSequencia !== sequenciaSessao) return;

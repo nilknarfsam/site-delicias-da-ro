@@ -10,7 +10,10 @@ import {
 // VERSAO_SDK = '12.19.0': manter todos os imports do SDK neste arquivo.
 export { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
-export { doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, limit, getDocs }
+export {
+  doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, limit, getDocs,
+  onSnapshot, writeBatch,
+}
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 
 export const app = initializeApp({
