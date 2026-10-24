@@ -21,17 +21,21 @@ Onde o `CLAUDE.md` disser "Claude Code", leia "o agente que estiver trabalhando"
 - Regras de segurança do Firestore, modelo de dados, fórmulas de precificação e decisões de produto **nunca** vão para o escritor.
 - Etapa pequena: o principal faz sozinho.
 
-### Escala de motores (Claude Code, desde 22/10/2026)
+### Escala de motores (desde 24/10/2026)
 
-Quando o Claude Code coordena, ele delega pelos plugins `antigravity-mcp` e `codex-mcp` (skill `fluxo-tres-motores`):
+O Claude Opus só orquestra: plano, especificação, revisão final, testes e PR. Ele escreve apenas ajustes de uma ou duas linhas.
 
-| Papel | Modelos |
-|---|---|
-| Escrever código e organizar arquivos | Gemini 3.8 Flash Low (tarefas mecânicas), Gemini 3.8 Flash Medium, GPT-5.6 Luna (Codex) |
-| Revisar o diff (só leitura) | Gemini 4 Argon High e GPT-6.1 Sol, em paralelo |
-| Revisão final, testes e PR | Claude |
+Ordem de preferência para escrever: ChatGPT pelo Codex → Gemini 3.8 pelo Antigravity → subagentes Claude Haiku/Sonnet → Claude Opus.
 
-Nunca dois escritores ao mesmo tempo na mesma branch. Os commits dizem qual modelo escreveu e quem revisou.
+| Motor | Papel | Quando usar |
+|---|---|---|
+| GPT-6.1 Sol médio (Codex) | Escritor das partes sensíveis e revisor | Fórmulas, regras do Firestore e modelo de dados |
+| GPT-5.6 Terra e GPT-5.6 Luna (Codex) | Escrita e revisão do dia a dia | Telas, CSS, testes e documentação |
+| Gemini 3.8 Flash Low/Medium (Antigravity) | Escrita em volume e segunda revisão | Tarefas de volume e revisão complementar |
+| Claude Sonnet (subagente) | Escrita média | Quando ChatGPT e Gemini estiverem sem cota |
+| Claude Haiku (subagente) | Tarefas mecânicas | Alterações simples e repetitivas |
+
+Fórmulas, regras do Firestore e modelo de dados nunca vão para Haiku nem Gemini Flash Low. Nunca dois escritores ao mesmo tempo na mesma branch. Revisão em paralelo pode, com um modelo do ChatGPT e Gemini 3.8. Os commits dizem qual modelo escreveu e quem revisou. Motivo: economizar a cota do Claude; o ChatGPT tem redefinições semanais sobrando.
 
 ## Passagem de bastão
 

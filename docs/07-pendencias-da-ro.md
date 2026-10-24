@@ -30,7 +30,8 @@ Marque com [x] quando resolver. O que faltar quando o Claude Code chegar na etap
 
 ## Do Franklin
 
-- [ ] Criar o repositório e o projeto no Firebase (`docs/04`, Fase 0).
-- [ ] Domínio: confirmar o nome e comprar no Registro.br.
-- [ ] Contador: criar a conta grátis no GoatCounter e colocar o código em `js/dados/site.js` (`contador.codigo`). O contador já está pronto e fica desligado até lá.
-- [ ] Link "Área da Rô" no rodapé do site ou sem link nenhum?
+- [x] Criar o repositório público (`docs/04`, Fase 0).
+- [ ] Criar o projeto no Firebase (`docs/04`, Fase 0); o restante da configuração será feito pelo Claude no Chrome.
+- [ ] Domínio: nome confirmado como `deliciasdaro.com.br`; comprar no Registro.br na semana de 27/10.
+- [ ] Contador: criar a conta grátis no GoatCounter e colocar o código em `js/dados/site.js` (`contador.codigo`). O contador já está pronto e fica desligado até lá (adiado em 24/10).
+- [ ] Link "Área da Rô" no rodapé do site ou sem link nenhum? A ideia agrada; decisão final depois.
