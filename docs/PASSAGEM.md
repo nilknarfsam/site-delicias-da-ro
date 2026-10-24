@@ -4,14 +4,15 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- Fase/etapa: **1E (publicação) em revisão** na branch `feat/1e-publicacao`. 1A a 1D estão no `main` (PRs #1 a #4) e no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
-- A 1E traz: prévia segura para o recorte quadrado do WhatsApp, links marcados com o endereço real (`conteudo/dados-da-confeitaria.md`), registro da 1C e da 1D, correções das auditorias de interface e SEO, fonte de título fixada na **Fraunces** e título "Bolos e doces em Manaus".
+- A **Fase 1 (site público) está completa no `main`**, com os PRs #1 a #5, e está no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
+- A **Fase 2 ainda não começou**. A pasta `app/` ainda não existe.
 
 ## Próxima tarefa (exata)
 
-1. **Franklin:** aprovar o PR da 1E. Depois do merge, colocar o link `?origem=instagram` na bio do Instagram e o `?origem=google` no Perfil da Empresa no Google.
-2. **Etapa 2B** (motor de cálculo do Precifica, `app/js/dominio/` com `node --test`, exemplo do `docs/06` seção 4). Escrita pelo GPT-6.1 Sol (regra do AGENTS.md: fórmulas não vão para o escritor pequeno), revisão Gemini 4 Argon High + Claude.
-3. Por último: código do GoatCounter em `site.contador.codigo`.
+1. **Etapa 2B:** motor de cálculo do Precifica em `app/js/dominio/`, com testes `node --test` e o exemplo do `docs/06`, seção 4. Escrita pelo GPT-6.1 Sol médio, revisão Gemini 3.8 + Claude.
+2. **Leitura do Instagram:** o Claude lê os posts de `@chefrosangelavieira` no Chrome, em modo só leitura; a tabela é aprovada pelo Franklin antes de entrar no site.
+3. **Firebase:** o Franklin cria o projeto; o Claude configura o restante pelo Chrome.
+4. **Etapa 2A:** fundação da Área da Rô.
 
 ### Fica para a reunião do Franklin com a Rô
 - Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
@@ -23,13 +24,22 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Dúvidas para o Franklin
 
-- Fonte dos títulos: ficou a Fraunces (A) por padrão, porque não houve escolha. Se preferir a B, é só avisar (trocar `--fonte-titulo`).
-- Preços no cardápio: "a partir de" ou "valores sob consulta" (hoje: sob consulta; `mostrarPrecos = false` em `js/dados/cardapio.js`).
+- Preços no cardápio: mostrar "a partir de" ou manter "valores sob consulta" (`mostrarPrecos = false` em `js/dados/cardapio.js`).
 - Fotos reais e descrição dos itens marcados `[PENDENTE]` no cardápio (decorados, 2 andares, caseiros, doces, cupcakes, kits).
-- Arte de capa feita para o site (opcional) e anos de confeitaria para os contadores.
-- Domínio, contador de visitas e link "Área da Rô": como antes.
+- Confirmar com a Rô o horário e as regras de encomenda.
+- Definir se haverá arte de capa opcional e quais números reais entram na seção "A Rô em números".
+- O link "Área da Rô" no rodapé agrada; decisão final depois.
+- O domínio confirmado é `deliciasdaro.com.br`, com compra prevista para a semana de 27/10.
+- O contador de visitas foi adiado em 24/10.
+- O Franklin colocará os links marcados na bio do Instagram e no Perfil da Empresa no Google.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-24 – Claude Code (computador) – Fechamento da Fase 1 e plano da Fase 2
+
+- Fez: atualizou a documentação para registrar a conclusão da Fase 1, os PRs #1 a #5, as decisões de 24/10 e o plano da Fase 2. O texto foi escrito pelo GPT-5.6 Luna e revisado pelo Claude.
+- Testou: conferiu a branch `docs/fechamento-fase-1`, o estado do repositório e os trechos documentais relacionados; `git diff --check` sem erros. Fórmulas do `docs/06` conferidas contra o app antigo no GitHub (`calculate_recipe_pricing.dart`, `derive_pricing_status.dart`, `ingredient_normalizer.dart`): batem.
+- Ficou faltando: criar o projeto no Firebase, fazer a leitura aprovada dos posts do Instagram e iniciar a Etapa 2B.
 
 ### 2026-10-23 – Claude Code (computador) – Etapa 1E com três motores
 

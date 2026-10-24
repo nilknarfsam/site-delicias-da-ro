@@ -6,3 +6,4 @@
 | 22/10/2026 | 1B – Início e Cardápio | #2 | Capa com fotos reais, destaques, prévia do cardápio, cardápio com 6 categorias e botão "Pedir este" |
 | 22/10/2026 | 1C – Encomendas, Datas, Sobre e Contato | #3 | Como pedir em 4 passos, regras e sabores com marcador de pendente, perguntas frequentes, campanha vintage, Sobre a Rô e Contato |
 | 23/10/2026 | 1D – Ligações e números | #4 | Prévia de compartilhamento (Open Graph), JSON-LD Bakery, robots.txt, sitemap.xml, ícone 192px, contador de visitas pronto (desligado) e seção de números (escondida) |
+| 23/10/2026 | 1E – Publicação | #5 | Prévia segura para o recorte quadrado do WhatsApp, links marcados para bio e Google, correções das auditorias de interface e SEO, fonte Fraunces fixa e título "Bolos e doces em Manaus" |
