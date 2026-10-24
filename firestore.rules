@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function logado() {
+      return request.auth != null;
+    }
+
+    function membro(atelierId) {
+      return logado()
+        && get(/databases/$(db)/documents/ateliers/$(atelierId)).data.membros[request.auth.uid] in ['dona', 'gestor'];
+    }
+
+    // Cada pessoa acessa apenas seu perfil e grava somente estes campos.
+    match /usuarios/{uid} {
+      allow read: if logado() && request.auth.uid == uid;
+      allow create, update: if logado() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['nome', 'email', 'criadoEm', 'atualizadoEm']);
+      allow delete: if false;
+    }
+
+    // Membros acessam o ateliê; a lista de membros só muda pelo console.
+    match /ateliers/{atelierId} {
+      // Mesmo formato do filtro da consulta (membros.<uid> in [...]), para a consulta ser aceita.
+      allow read: if logado() && resource.data.membros[request.auth.uid] in ['dona', 'gestor'];
+      allow update: if logado() && resource.data.membros[request.auth.uid] in ['dona', 'gestor']
+        && request.resource.data.membros == resource.data.membros;
+      allow create, delete: if false;
+
+      // Documentos do ateliê exigem participação no documento pai.
+      match /{colecao}/{docId} {
+        allow read, write: if membro(atelierId);
+      }
+    }
+
+    // Qualquer outro caminho fica bloqueado.
+    match /{tudo=**} {
+      allow read, write: if false;
+    }
+  }
+}
