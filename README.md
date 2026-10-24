@@ -58,6 +58,13 @@ python -m http.server 8080
 node ferramentas/contraste.mjs
 ```
 
+Testes do motor de cálculo da Área da Rô (`app/js/dominio/`), sem dependências:
+
+```
+cd app
+node --test
+```
+
 ## Fluxo de trabalho
 
 Uma etapa por branch `feat/...` com PR. Projeto em dupla Claude + Codex: ler [`AGENTS.md`](AGENTS.md) e [`docs/PASSAGEM.md`](docs/PASSAGEM.md) antes de começar.
