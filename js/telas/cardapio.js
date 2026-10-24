@@ -1,5 +1,5 @@
-import { categorias, avisoRetirada } from '../dados/cardapio.js';
-import { escapar, cartaoProduto } from '../modules/templates.js';
+import { categorias, avisoRetirada, mostrarPrecos } from '../dados/cardapio.js';
+import { escapar, cartaoProduto, formatarMoeda } from '../modules/templates.js';
 import { prepararLinksWhatsApp } from '../modules/whatsapp.js';
 
 export function iniciarCardapio(app) {
@@ -24,6 +24,27 @@ export function iniciarCardapio(app) {
           avisoTexto: avisoRetirada,
         })).join('')}
       </div>
+      ${mostrarPrecos && c.tabelaTamanhos ? `
+        <div class="tabela-tamanhos">
+          <table>
+            <caption>Tamanhos e preços</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fatias</th>
+                <th scope="col">Aro</th>
+                <th scope="col">Preço</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${c.tabelaTamanhos.map((tamanho) => `
+                <tr>
+                  <td>${escapar(tamanho.fatias)}</td>
+                  <td>${escapar(tamanho.aro)}</td>
+                  <td>${escapar(formatarMoeda(tamanho.preco))}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>` : ''}
     </section>`).join('');
 
   prepararLinksWhatsApp(app);

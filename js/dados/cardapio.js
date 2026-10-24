@@ -1,12 +1,12 @@
 // Cardápio do site público.
 // Regras (CLAUDE.md): só foto real de produto; nada inventado; preço só se a Rô decidir mostrar.
-// Enquanto a Rô não decidir, mostrarPrecos = false e nenhum valor entra aqui.
+// Preços de venda autorizados pelo Franklin em 24/10/2026; nunca custo.
 // foto: { arquivo: nome base em imagens/produtos/ (sem -480/-800), alt } ou null (foto real pendente).
 
-export const mostrarPrecos = false;
+export const mostrarPrecos = true;
 
 export const avisoRetirada =
-  'Bentô Cakes e bolos pequenos são delicados: retirada no ateliê, por carro particular. Não fazemos transporte por moto.';
+  'Bentô Cakes e bolos pequenos são delicados: retirada no ateliê, só por carro particular ou de aplicativo. Não é permitido o transporte por moto.';
 
 export const categorias = [
   {
@@ -34,6 +34,13 @@ export const categorias = [
         descricao: 'Topo com frase personalizada.',
         foto: { arquivo: 'bolo-vintage-lacos-marrons', alt: 'Bolo vintage creme com laços marrons e topo com frase divertida.' },
       },
+      {
+        id: 'mini-vintage-coracao',
+        nome: 'Mini Vintage de Coração',
+        descricao: 'Bolo de 10 cm, massa de chocolate ou branca, recheio de chocolate, prestígio, leite Ninho ou doce de leite. Ideal para presentear.',
+        aPartirDe: 50,
+        foto: null,
+      },
     ],
   },
   {
@@ -45,7 +52,8 @@ export const categorias = [
       {
         id: 'bento-cake',
         nome: 'Bentô Cake',
-        descricao: 'Bolo pequeno e delicado, com acabamento vintage.',
+        descricao: 'Bolo de 10 cm com 2 camadas de massa e 1 de recheio, em embalagem para presente. Modelos vintage e com laço. Massa de chocolate ou branca; recheio de chocolate, prestígio, doce de leite ou leite Ninho.',
+        aPartirDe: 45,
         foto: { arquivo: 'bento-cake-morangos', alt: 'Bentô Cake branco com morangos frescos no topo, laço vermelho e coraçõezinhos.' },
         destaque: true,
       },
@@ -53,11 +61,19 @@ export const categorias = [
   },
   {
     id: 'bolos-decorados',
-    nome: 'Bolos decorados e temáticos',
-    descricao: '',
+    nome: 'Bolos personalizados',
+    descricao: 'Do aro 11 cm ao aro 25 cm, com massa branca (amanteigada) ou de chocolate e cobertura de chantininho.',
     itens: [
-      { id: 'bolo-decorado', nome: 'Bolos decorados', descricao: '[PENDENTE: descrição]', foto: null },
+      { id: 'bolo-decorado', nome: 'Bolos personalizados', descricao: 'Escolha o tamanho pela quantidade de fatias. Recheios premium têm acréscimo; topo e glitter são cobrados à parte.', aPartirDe: 100, foto: null },
       { id: 'bolo-dois-andares', nome: 'Bolos de 2 andares e temáticos', descricao: '[PENDENTE: descrição]', foto: null },
+    ],
+    tabelaTamanhos: [
+      { fatias: '7 a 9', aro: '11 cm', preco: 100 },
+      { fatias: '10 a 12', aro: '13 cm', preco: 135 },
+      { fatias: '12 a 15', aro: '15 cm', preco: 152 },
+      { fatias: '16 a 19', aro: '17 cm', preco: 200 },
+      { fatias: '20 a 25', aro: '20 cm', preco: 226 },
+      { fatias: '38 a 40', aro: '25 cm', preco: 279 },
     ],
   },
   {
@@ -82,8 +98,10 @@ export const categorias = [
     nome: 'Kits',
     descricao: 'O combo perfeito para sua comemoração.',
     itens: [
-      { id: 'kit-festa', nome: 'Kit Festa', descricao: '[PENDENTE: o que vem no kit]', foto: null },
-      { id: 'kit-mesversario', nome: 'Kit Mêsversário', descricao: '[PENDENTE: o que vem no kit]', foto: null },
+      { id: 'kit-parabens', nome: 'Kit Parabéns', descricao: 'Decoração personalizada: balão médio, topo de bolo, 3 quadros A4 e faixa "Parabéns". O bolo é à parte: 11 cm por R$ 100 ou 15 cm por R$ 152.', aPartirDe: 50, foto: null },
+      { id: 'kit-festa', nome: 'Kit Festa', descricao: 'Bolo, cupcakes e brigadeiros gourmet, com display de mesa ou arranjo de balão. Do bolo de 11 cm ao de 17 cm.', aPartirDe: 152, foto: null },
+      { id: 'kit-festa-na-mesa', nome: 'Kit Festa na Mesa', descricao: 'Painel de 40 cm, bolo de 15 cm, 6 cupcakes com tags, 20 brigadeiros gourmet e display de mesa.', aPartirDe: 285, foto: null },
+      { id: 'kit-mesversario', nome: 'Kit Mêsversário', descricao: 'Bolo de 15 cm, cupcakes, brigadeiros gourmet, papelaria completa e arranjo de balões.', aPartirDe: 350, foto: null },
     ],
   },
 ];

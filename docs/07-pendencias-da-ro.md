@@ -6,10 +6,10 @@ Marque com [x] quando resolver. O que faltar quando o Claude Code chegar na etap
 
 - [ ] Lista final do cardápio, por categoria.
 - [ ] Foto real de cada item (as que existem: `Claude/Design/01 - Delícias da Rô/Fotos Originais`, `Sobremesas` e `Natal 2024`).
-- [ ] Mostrar preço "a partir de" ou só "consulte"? (valores já confirmados em 17/10: Kit Parabéns R$ 50; bolo 11 cm R$ 100; 15 cm R$ 152).
-- [ ] Antecedência mínima (o modelo de orçamento atual diz 3 dias) e sinal (atual: 50 %).
-- [ ] Formas de pagamento (atual: PIX, dinheiro e cartões).
-- [ ] Retirada: como descrever o local sem endereço pessoal. Entrega: faz? bairros e taxa?
+- [x] Mostrar preço "a partir de" ou só "consulte"? Confirmado em 24/10 pelas artes do Instagram.
+- [x] Antecedência mínima (o modelo de orçamento atual diz 3 dias) e sinal (atual: 50 %). Confirmado em 24/10 pelas artes do Instagram.
+- [x] Formas de pagamento (atual: PIX, dinheiro e cartões). Confirmado em 24/10 pelas artes do Instagram.
+- [x] Retirada: como descrever o local sem endereço pessoal. Entrega: faz? bairros e taxa? Confirmado em 24/10 pelas artes do Instagram.
 - [ ] Horário: confirmar segunda a sábado, 9h às 18h.
 - [ ] História contada pela Rô (texto ou áudio), faculdade e ano de formação (se quiser mostrar).
 - [ ] Foto da Rô (se quiser aparecer).
