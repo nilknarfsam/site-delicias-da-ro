@@ -9,6 +9,7 @@ import { renderizarSemAcesso } from './telas/sem-acesso.js';
 import { renderizarErro } from './telas/erro.js';
 import { renderizarInicio } from './telas/inicio.js';
 import { renderizarDispensa } from './telas/dispensa.js';
+import { renderizarBiblioteca } from './telas/biblioteca.js';
 import { renderizarEmBreve } from './telas/em-breve.js';
 
 const conteudo = document.getElementById('conteudo');
@@ -59,6 +60,12 @@ function renderizarRotaLiberada(rota) {
   }
   if (rota === 'dispensa') {
     return renderizarDispensa(conteudo, {
+      atelierId: atelieAtual?.id || '',
+      uid: usuarioAtual?.uid || '',
+    });
+  }
+  if (rota === 'biblioteca') {
+    return renderizarBiblioteca(conteudo, {
       atelierId: atelieAtual?.id || '',
       uid: usuarioAtual?.uid || '',
     });
