@@ -1,9 +1,16 @@
+import { mostrarPrecos } from '../dados/cardapio.js';
+
 export const escapar = (t) => String(t ?? '')
   .replace(/&/g, '&amp;')
   .replace(/</g, '&lt;')
   .replace(/>/g, '&gt;')
   .replace(/"/g, '&quot;')
   .replace(/'/g, '&#39;');
+
+export const formatarMoeda = (valor) => new Intl.NumberFormat('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+}).format(valor).replace(/\u00a0/g, ' ');
 
 export function renderizarLista(container, itens, template) {
   container.innerHTML = itens.map(template).join('');
@@ -40,7 +47,9 @@ export function cartaoProduto(item, { carregarTarde = true, comAviso = false, av
         <h3 class="cartao__titulo">${escapar(item.nome)}</h3>
         <p class="cartao__texto">${textoOuPendente(item.descricao)}</p>
         ${comAviso ? `<p class="cartao__aviso">${escapar(avisoTexto)}</p>` : ''}
-        <p class="cartao__preco">Valores sob consulta</p>
+        <p class="cartao__preco">${mostrarPrecos && typeof item.aPartirDe === 'number'
+    ? `A partir de ${escapar(formatarMoeda(item.aPartirDe))}`
+    : 'Valores sob consulta'}</p>
         <a class="botao botao--principal botao--bloco" data-whatsapp data-produto="${escapar(item.nome)}" href="https://wa.me/5592981681827">Pedir este</a>
       </div>
     </article>`;

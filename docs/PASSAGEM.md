@@ -4,15 +4,16 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Estado atual
 
-- A **Fase 1 (site público) está completa no `main`**, com os PRs #1 a #5, e está no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
-- A **Fase 2 ainda não começou**. A pasta `app/` ainda não existe.
+- **Fase 1 (site público)** completa no `main` (PRs #1 a #5), no ar em https://nilknarfsam.github.io/site-delicias-da-ro/.
+- **Etapa 1F (preços e regras)** em PR na branch `feat/1f-precos-e-regras`: preços "a partir de", tabela de tamanhos dos bolos personalizados, kits, regras de encomenda confirmadas e "não fazemos entregas".
+- **Etapa 2B** no `main` (PR #7): motor de cálculo em `app/js/dominio/`, 35 testes `node --test`.
+- **Firebase** configurado em 24/10 pelo Claude no Chrome: projeto `delicias-da-ro-ab7e2` (Spark), login Google ativo, domínio `nilknarfsam.github.io` autorizado, Firestore `(default)` em `southamerica-east1` no modo de produção (tudo negado), app web "Precifica Rô Web" registrado. A configuração do app web entra em `app/js/firebase.js` na 2A.
 
 ## Próxima tarefa (exata)
 
-1. **Etapa 2B:** motor de cálculo do Precifica em `app/js/dominio/`, com testes `node --test` e o exemplo do `docs/06`, seção 4. Escrita pelo GPT-6.1 Sol médio, revisão Gemini 3.8 + Claude.
-2. **Leitura do Instagram:** o Claude lê os posts de `@chefrosangelavieira` no Chrome, em modo só leitura; a tabela é aprovada pelo Franklin antes de entrar no site.
-3. **Firebase:** o Franklin cria o projeto; o Claude configura o restante pelo Chrome.
-4. **Etapa 2A:** fundação da Área da Rô.
+1. **Franklin:** aprovar o PR da 1F.
+2. **Etapa 2A:** fundação da Área da Rô (casca do `app/`, login Google, tela "acesso não liberado", ateliê e membros, `firestore.rules` testadas e mostradas ao Franklin antes de publicar, offline). Regras e modelo de dados pelo GPT-6.1 Sol médio; casca pelo Gemini 3.8; revisão cruzada e Claude.
+3. Depois do primeiro login da Rô: colocar o usuário dela como membro do ateliê no Firestore.
 
 ### Fica para a reunião do Franklin com a Rô
 - Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
@@ -24,9 +25,9 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Dúvidas para o Franklin
 
-- Preços no cardápio: mostrar "a partir de" ou manter "valores sob consulta" (`mostrarPrecos = false` em `js/dados/cardapio.js`).
+- Conferir com a Rô: "Mini Vintage de Coração" (R$ 50) e "Mini Bolo Vintage" (R$ 45) são o mesmo bolo? Os kits de junho continuam valendo? A tabela de tamanhos veio de uma arte antiga (11 cm e 15 cm batem com outubro/2026).
 - Fotos reais e descrição dos itens marcados `[PENDENTE]` no cardápio (decorados, 2 andares, caseiros, doces, cupcakes, kits).
-- Confirmar com a Rô o horário e as regras de encomenda.
+- Confirmar com a Rô o horário.
 - Definir se haverá arte de capa opcional e quais números reais entram na seção "A Rô em números".
 - O link "Área da Rô" no rodapé agrada; decisão final depois.
 - O domínio confirmado é `deliciasdaro.com.br`, com compra prevista para a semana de 27/10.
@@ -34,6 +35,12 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - O Franklin colocará os links marcados na bio do Instagram e no Perfil da Empresa no Google.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-24 – Codex – Etapa 1F: preços e regras
+
+- Fez (GPT-5.6 Terra, revisado pelo Claude): habilitou preços de venda "a partir de" autorizados pelo Franklin, atualizou itens e kits do cardápio, incluiu a tabela acessível de tamanhos e preços, confirmou regras/sabores, informou que não há entrega e registrou a Páscoa.
+- Testou: `node --check` nos quatro JavaScript alterados, `git diff --check` e `cd app && node --test` (35 testes aprovados).
+- Ficou faltando: aprovação do PR pelo Franklin. Fontes: artes do Instagram @chefrosangelavieira lidas em 24/10 (26 posts, só leitura) e três artes enviadas pelo Franklin.
 
 ### 2026-10-24 – Claude Code (computador) – Fechamento da Fase 1 e plano da Fase 2
 

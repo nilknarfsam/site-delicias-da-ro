@@ -360,6 +360,40 @@
 .categoria__cabecalho { margin-bottom: var(--espaco-4); }
 .categoria__descricao { margin: 0; font-size: var(--texto-m); }
 
+/* ---------- Tabela de tamanhos ---------- */
+.tabela-tamanhos {
+  width: 100%;
+  margin-top: var(--espaco-4);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-pequeno);
+  overflow: hidden;
+  background: var(--cor-branco);
+}
+.tabela-tamanhos table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.tabela-tamanhos caption {
+  padding: var(--espaco-3);
+  background: var(--cor-fundo-2);
+  color: var(--cor-texto-2);
+  font-size: var(--texto-m);
+  font-weight: 800;
+  text-align: left;
+}
+.tabela-tamanhos th,
+.tabela-tamanhos td {
+  padding: var(--espaco-2);
+  border-top: 1px solid var(--cor-borda);
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.tabela-tamanhos th { color: var(--cor-texto-2); font-weight: 800; }
+.tabela-tamanhos th:last-child,
+.tabela-tamanhos td:last-child { text-align: right; white-space: nowrap; }
+
+@media (min-width: 576px) {
+  .tabela-tamanhos th,
+  .tabela-tamanhos td { padding: var(--espaco-3); }
+}
+
 /* ---------- Páginas de informação (etapa 1C) ---------- */
 .informacoes { margin-bottom: var(--espaco-6); }
 

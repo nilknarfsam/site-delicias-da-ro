@@ -1,28 +1,27 @@
-// Conteúdo da etapa 1C. Regras e sabores ainda aguardam confirmação da Rô.
-// Sem preços: mudar confirmado para true somente depois da confirmação.
+// Regras confirmadas pelo Franklin em 24/10/2026.
 import { categorias } from './cardapio.js';
 
 export const passos = [
   { texto: 'Escolha no cardápio', link: '#/cardapio' },
   { texto: 'Chame a Rô no WhatsApp', whatsapp: true },
   { texto: 'Combine os detalhes e pague o sinal' },
-  { texto: 'Retire ou receba a sua encomenda' },
+  { texto: 'Retire a sua encomenda na confeitaria' },
 ];
 
 export const regras = [
-  { id: 'sinal', texto: 'Sinal de 50% do valor para confirmar a encomenda.', confirmado: false },
-  { id: 'antecedencia', texto: 'Antecedência mínima de 3 dias.', confirmado: false },
-  { id: 'retirada', texto: 'Retirada com data e hora marcadas.', confirmado: false },
-  { id: 'entrega', texto: 'Fazemos entregas (taxa sob consulta).', confirmado: false },
-  { id: 'pagamento', texto: 'Pagamento: PIX, dinheiro e cartões.', confirmado: false },
-  { id: 'extras', texto: 'Topo, glitter e embalagens são cobrados à parte.', confirmado: false },
+  { id: 'sinal', texto: 'Encomenda confirmada com o pagamento de 50% do valor.', confirmado: true },
+  { id: 'antecedencia', texto: 'Antecedência mínima de 3 dias. Não trabalhamos com pronta entrega: tudo é feito sob encomenda.', confirmado: true },
+  { id: 'retirada', texto: 'Retirada na confeitaria, no dia e horário combinados no pedido.', confirmado: true },
+  { id: 'entrega', texto: 'Não fazemos entregas: todas as encomendas são retiradas na confeitaria.', confirmado: true },
+  { id: 'pagamento', texto: 'Pagamento: PIX, dinheiro e cartões de crédito e débito.', confirmado: true },
+  { id: 'extras', texto: 'Topo, glitter e embalagens são cobrados à parte.', confirmado: true },
 ];
 
 export const sabores = [
-  { texto: 'Massas: branca ou chocolate.', confirmado: false },
-  { texto: 'Cobertura de chantininho.', confirmado: false },
-  { texto: 'Recheios tradicionais: chocolate, prestígio, leite Ninho, 4 leites.', confirmado: false },
-  { texto: 'Recheios premium (com acréscimo): Ninho com morango, maracujá, Ninho com Nutella, Ninho com geleia de morango.', confirmado: false },
+  { texto: 'Massas: branca ou chocolate.', confirmado: true },
+  { texto: 'Cobertura de chantininho.', confirmado: true },
+  { texto: 'Recheios tradicionais: chocolate, prestígio, leite Ninho, 4 leites.', confirmado: true },
+  { texto: 'Recheios premium: Ninho com morango, maracujá, Ninho com Nutella, Ninho com geleia de morango (com acréscimo conforme o tamanho do bolo).', confirmado: true },
 ];
 
 export const perguntasFrequentes = [
@@ -46,7 +45,9 @@ export const campanhaVintage = {
 export const datasEspeciais = ['Dia das Mães', 'Dia dos Namorados', 'Páscoa', 'Natal'].map((nome) => ({
   nome,
   descricao: 'Fale com a Rô com antecedência para garantir a sua encomenda.',
-  produtos: '[PENDENTE: produtos da época]',
+  produtos: nome === 'Páscoa'
+    ? 'Ovos de colher em vários sabores, ovos tradicionais com guloseimas e ovos Uno, Duo e Trio de 50 g.'
+    : '[PENDENTE: produtos da época]',
   foto: null,
   mensagem: `Olá, Rô! Vim pelo site e quero uma encomenda para ${nome}.`,
 }));
