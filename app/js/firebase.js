@@ -12,7 +12,7 @@ export { GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
 export {
   doc, getDoc, setDoc, updateDoc, serverTimestamp, collection, query, where, limit, getDocs,
-  onSnapshot, writeBatch,
+  onSnapshot, writeBatch, deleteField,
 }
   from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js';
 

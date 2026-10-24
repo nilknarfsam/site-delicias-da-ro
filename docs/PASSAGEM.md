@@ -10,10 +10,9 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 
 ## Próxima tarefa (exata)
 
-1. **Franklin:** aprovar o PR da 2C (Dispensa).
-2. **Etapa 2D (Biblioteca):** lista, busca, cadastrar, editar, excluir, importar JSON (mesmos apelidos de campo do app antigo, `docs/06` seção 2), limpar com confirmação e "levar para a Precificação". Mostrar o plano antes de codar.
+1. **Franklin:** aprovar o PR da 2D (Biblioteca).
+2. **Etapa 2E (Precificação):** tela única com preço sempre visível, ingredientes ligados à Dispensa, custos adicionais, taxa operacional ou custos detalhados (decisão da Rô, `docs/06` 5.4), rendimento, lucro com as duas leituras, status, categorias, copiar resumo e excluir rascunhos. Abrir os rascunhos criados pela Biblioteca. Ajustar os rótulos cortados do menu inferior no celular. Mostrar o plano antes de codar.
 3. Etapa pequena: App Check com reCAPTCHA v3.
-4. Detalhe visual: no celular, "Precificação" e "Orçamentos" ficam cortados no menu inferior (ajustar na 2E).
 
 ### Fica para a reunião do Franklin com a Rô
 - Cardápio completo, preços e tamanhos; confirmar horário (hoje "segunda a sábado, das 9h às 18h", vindo de `conteudo/dados-da-confeitaria.md`) e as regras de encomenda.
@@ -35,6 +34,12 @@ Arquivo vivo. Quem trabalhar no projeto **lê primeiro** e **atualiza por últim
 - O Franklin colocará os links marcados na bio do Instagram e no Perfil da Empresa no Google.
 
 ## Sessões (mais recente primeiro)
+
+### 2026-10-24 – Claude Code (computador) – Etapa 2D: Biblioteca
+
+- Fez: Biblioteca com lista, busca sem acento por nome/categoria/ingrediente, filtro por categoria, detalhe com grupos, alternativas e "preço estimado", cadastro e edição (preserva campos não exibidos), excluir com Desfazer, importar JSON (uma receita, lista ou backup do app antigo, mesmos apelidos do `docs/06`), prévia com erros por receita e escolha para repetidas, exportar no formato do backup antigo, limpar com backup antes e confirmação digitando LIMPAR, "Levar para a Precificação" (rascunho com preços da Dispensa pelo nome). Domínio e dados pelo GPT-6.1 Sol médio; telas pelo Gemini 3.8 em duas rodadas; revisão pelo GPT-5.6 Luna.
+- Testou: 89 testes `node --test`; Chrome com conta real: importação de JSON no estilo GPT (prévia "2 receitas, 5 ingredientes, 1 com preço estimado" e erro da receita sem nome), HTML no nome exibido como texto, busca por ingrediente, detalhe, edição preservando alternativas e preço estimado, rascunho criado em `precificacoes` conferido no console, excluir e desfazer; 390px numa moldura (1 `h1`, sem rolagem lateral, formulário em tela cheia, nenhum alvo < 44px). Não testou de verdade "Exportar" (baixaria arquivo) nem "Limpar" (apaga tudo): cobertos pelos testes de domínio.
+- Ficou faltando: o rascunho de teste "TESTE Bolo de chocolate editado" em `precificacoes` (excluir pela tela da 2E).
 
 ### 2026-10-24 – Claude Code (computador) – Etapa 2C: Dispensa
 
